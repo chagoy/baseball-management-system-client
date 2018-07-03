@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from 'react-redux';
+import {Route, withRouter} from 'react-router-dom';
 
-class App extends Component {
+import LandingPage from './components/landing-page';
+import Dashboard from './components/dashboard';
+import LoginPage from './components/login-page';
+import RegisterPage from './components/register-page';
+import RegisterPlayer from './components/register-player';
+
+export class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      	<Route exact path="/" component={LandingPage} />
+    	<Route exact path="/register" component={RegisterPage} />
+      	<Route exact path="/dashboard" component={Dashboard} />
+      	<Route exact path="/register-player" component={RegisterPlayer} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+	hasAuthToken: state.auth.authToken !== null,
+	loggedIn: state.auth.currentUser !== null
+})
+
+export default withRouter(connect(mapStateToProps)(App));
