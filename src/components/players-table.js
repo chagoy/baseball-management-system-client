@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 import moment from 'moment';
 import PayConfirm from './pay-confirm';
+import {Link} from 'react-router-dom';
 
 export class PlayersTable extends React.Component {
 	componentDidMount() {
@@ -20,7 +21,7 @@ export class PlayersTable extends React.Component {
 		const players = this.props.players.map(player => 
 			<tr>
 				<td>{player.sport}</td>
-				<td><a href="">{player.fullName}</a></td>
+				<td><Link to="">{player.fullName}</Link></td>
 				<td>{player.month}/{player.day}/{player.year}</td>
 				<td>{playingAge(player.month, player.day, player.year)}</td>
 				<td>{player.division}</td>

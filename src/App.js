@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard';
 import LoginPage from './components/login-page';
 import RegisterPage from './components/register-page';
 import RegisterPlayer from './components/register-player';
+import Player from './components/player';
 
 export class App extends Component {
   render() {
@@ -16,6 +17,7 @@ export class App extends Component {
       	<Route exact path="/register" component={RegisterPage} />
       	<Route exact path="/dashboard" component={Dashboard} />
       	<Route exact path="/register-player" component={RegisterPlayer} />
+        <Route path="/players/:id" component={Player} />
       </div>
     );
   }
