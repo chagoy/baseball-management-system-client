@@ -40,6 +40,11 @@ const storeAuthInfo = (authToken, dispatch) => {
 	saveAuthToken(authToken);
 };
 
+export const logout = user => dispatch => {
+	dispatch(authRequest());
+	dispatch(clearAuth());
+}
+
 export const login = (username, password, email, firstName, lastName) => dispatch => {
 	dispatch(authRequest());
 	return (

@@ -11,6 +11,7 @@ export function RegisterPlayer(props) {
 	return (
 		<div className="whatever">
 			<h2>Register a player</h2>
+			<p>this is the page to register a player. you have to be logged in to see it</p>
 			<PlayerForm />
 		</div>
 	)

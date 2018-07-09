@@ -13,7 +13,7 @@ export class App extends Component {
     return (
       <div className="App">
       	<Route exact path="/" component={LandingPage} />
-    	<Route exact path="/register" component={RegisterPage} />
+      	<Route exact path="/register" component={RegisterPage} />
       	<Route exact path="/dashboard" component={Dashboard} />
       	<Route exact path="/register-player" component={RegisterPlayer} />
       </div>

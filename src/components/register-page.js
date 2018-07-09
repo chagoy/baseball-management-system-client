@@ -12,6 +12,7 @@ export function RegisterPage(props) {
 	return (
 		<div className="home">
 			<h2>Welcome new users, to register a player, you need to register yourself first</h2>
+			<p>this is a form to sign up</p>
 			<RegistrationForm />
 			<Link to="/">Or log in</Link>
 		</div>
