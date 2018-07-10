@@ -13,6 +13,7 @@ export function Dashboard(props) {
 		<div className="home">
 			<h2>Dashboard</h2>
 			<Link to="/register-player">Register a player</Link>
+			<Link to="/create-team">Create a team</Link>
 			<PlayersTable />
 			<LogoutForm />
 		</div>

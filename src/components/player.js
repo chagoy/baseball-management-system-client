@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PayConfirm from './pay-confirm';
 import {fetchPlayer} from '../actions/players';
+import DivisionSelect from './division-select';
+import TeamSelect from './team-select';
 
 export class Player extends React.Component {
 	componentDidMount() {
@@ -10,13 +12,24 @@ export class Player extends React.Component {
 
 	render() {
 		return (
-			<p></p>
+			<div>
+				<h1>{this.props.player.fullName}</h1>
+				<h4>{this.props.player.dob}</h4>
+				<p>{this.props.player.team} - {this.props.player.division}</p>
+				<div>
+				<label>Change Division</label>
+				<DivisionSelect id={this.props.player.id} />
+				<label>Change Team</label>
+				<TeamSelect id={this.props.player.id} />
+				</div>
+			</div>
 		)
 	}
 }
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
+	player: state.player.player
 })
 
 export default connect(mapStateToProps)(Player)

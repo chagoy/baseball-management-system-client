@@ -15,6 +15,34 @@ export const fetchPlayerError = error => ({
 	error
 });
 
+export const UPDATE_PLAYER_DIVISION = 'UPDATE_PLAYER_DIVISION';
+export const updatePlayerDivision = player => ({
+	type: UPDATE_PLAYER_DIVISION,
+	player
+});
+
+export const updateDivision = (playerId, {division}) => dispatch => {
+	const authToken = loadAuthToken();
+	console.log(division);
+	return fetch(`${API_BASE_URL}/api/players/${playerId}/division`, {
+		method: 'PUT', 
+		headers: {
+			'content-type': 'application/json',
+			'Authorization': `Bearer ${authToken}`
+		},
+		body: JSON.stringify({
+			"division": division
+		})
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(updatePlayerDivision(data)))
+	.catch(err => {
+		console.error(err);
+	})
+
+}
+
 export const fetchPlayer = (playerId) => dispatch => {
 	const authToken = loadAuthToken();
 
@@ -27,8 +55,7 @@ export const fetchPlayer = (playerId) => dispatch => {
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
-	.then(res => console.log(res))
-	.then(player => dispatch(fetchPlayerSuccess(player)))
+	.then((player) => dispatch(fetchPlayerSuccess(player)))
 	.catch(err => {
 		const {reason, message, location} = err;
 		if (reason === 'ValidationError') {
