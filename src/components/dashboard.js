@@ -13,8 +13,8 @@ export function Dashboard(props) {
 		<div className="home">
 			<h2>Dashboard</h2>
 			<Link to="/register-player">Register a player</Link>
-			<Link to="/create-team">Create a team</Link>
-			<PlayersTable />
+			{ props.user.admin ? <Link to="/create-team">Create a team</Link> : ''}
+			{ props.user.admin ? <PlayersTable /> : ''}
 			<LogoutForm />
 		</div>
 	)
@@ -22,7 +22,7 @@ export function Dashboard(props) {
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
-	// admin: state.auth.currentUser.admin != null
+	user: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Dashboard);

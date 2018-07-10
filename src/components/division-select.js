@@ -6,18 +6,15 @@ import { updateDivision } from '../actions/players';
 
 export class DivisionForm extends React.Component {
 	onSubmit(values) {
-		console.log(values);
 		return this.props.dispatch(updateDivision(this.props.id, values));
 	}
 
 	render() {
 		return (
-			<td>
 			<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<Field placeholder={this.props.division} component={Select} name="division" options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
 					<button type="submit">Change</button>
 				</form>
-			</td>
 		);
 	}
 }

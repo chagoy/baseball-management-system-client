@@ -21,7 +21,7 @@ export const fetchAllTeamsSuccess = teams => ({
 	teams
 });
 
-export const FETCH_ALL_TEAMS_ERROR = 'FETCH_ALL_TEAMS_SUCCESS';
+export const FETCH_ALL_TEAMS_ERROR = 'FETCH_ALL_TEAMS_ERROR';
 export const fetchAllTeamsError = error => ({
 	type: FETCH_ALL_TEAMS_ERROR,
 	error

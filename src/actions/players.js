@@ -21,6 +21,34 @@ export const updatePlayerDivision = player => ({
 	player
 });
 
+export const UPDATE_TEAM_SUCCESS = 'UPDATE_TEAM_SUCCESS';
+export const updateTeamSuccess = team => ({
+	type: UPDATE_TEAM_SUCCESS,
+	team
+});
+
+export const updateTeam = (id, team) => dispatch => {
+	const authToken = loadAuthToken();
+	console.log(team.team)
+	return fetch(`${API_BASE_URL}/api/players/${id}/team`, {
+		method: 'PUT', 
+		headers: {
+			'content-type': 'application/json',
+			'Authorization': `Bearer ${authToken}`
+		},
+		body: JSON.stringify({
+			'team': team.team
+		})
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => {
+		dispatch(fetchPlayerSuccess(data));
+		dispatch(updateTeamSuccess(data.team));
+	})
+	.catch(err => console.error(err));
+}
+
 export const updateDivision = (playerId, {division}) => dispatch => {
 	const authToken = loadAuthToken();
 	console.log(division);
@@ -55,7 +83,10 @@ export const fetchPlayer = (playerId) => dispatch => {
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
-	.then((player) => dispatch(fetchPlayerSuccess(player)))
+	.then((player) => {
+		dispatch(fetchPlayerSuccess(player))
+		dispatch(updateTeamSuccess(player.team))
+	})
 	.catch(err => {
 		const {reason, message, location} = err;
 		if (reason === 'ValidationError') {

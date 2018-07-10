@@ -15,12 +15,12 @@ export class Player extends React.Component {
 			<div>
 				<h1>{this.props.player.fullName}</h1>
 				<h4>{this.props.player.dob}</h4>
-				<p>{this.props.player.team} - {this.props.player.division}</p>
+				<p>{this.props.team.name ? `${this.props.team.name} - ${this.props.team.division}` : ''}</p>
 				<div>
-				<label>Change Division</label>
-				<DivisionSelect id={this.props.player.id} />
-				<label>Change Team</label>
-				<TeamSelect id={this.props.player.id} />
+					<label>Change Division</label>
+					<DivisionSelect id={this.props.player.id} />
+					<label>Change Team</label>
+					<TeamSelect id={this.props.player.id} />
 				</div>
 			</div>
 		)
@@ -29,7 +29,8 @@ export class Player extends React.Component {
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
-	player: state.player.player
+	player: state.player.player,
+	team: state.team.team
 })
 
 export default connect(mapStateToProps)(Player)

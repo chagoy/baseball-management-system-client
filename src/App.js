@@ -13,7 +13,7 @@ import CreateTeam from './components/create-team';
 export class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App flex-wrap">
       	<Route exact path="/" component={LandingPage} />
       	<Route exact path="/register" component={RegisterPage} />
       	<Route exact path="/dashboard" component={Dashboard} />
