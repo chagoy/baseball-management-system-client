@@ -10,7 +10,7 @@ export function LandingPage(props) {
 
 	return (
 		<div className="flex-row">
-			<h2>Welcome to the app</h2>
+			<h2>Baseball & Softball</h2>
 			<p>this is the landing page. The login form should be on this page. you will have the ability to click a register button if you don't want to login. asdflkjfa</p>
 			<div className="flex-c-50">
 				<LoginForm />

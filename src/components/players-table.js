@@ -23,9 +23,9 @@ export class PlayersTable extends React.Component {
 				<td>{player.sport}</td>
 				<td><Link to={`/players/${player.id}`}>{player.fullName}</Link></td>
 				<td>{player.month}/{player.day}/{player.year}</td>
-				<td>{playingAge(player.month, player.day, player.year)}</td>
+				<td>{player.playingAge}</td>
 				<td>{player.division}</td>
-				<td>Team</td>
+				<td>{player.team ? player.team.name : 'no team'}</td>
 				<td><PayConfirm id={player.id} paid={player.paid} /></td>
 			</tr>
 			);
