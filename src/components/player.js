@@ -12,7 +12,7 @@ export class Player extends React.Component {
 	}
 
 	render() {
-		if (!this.props.player) {
+		if (!this.props.loggedIn) {
 			return <div>You are not authorized to view this page</div>;
 		}
 

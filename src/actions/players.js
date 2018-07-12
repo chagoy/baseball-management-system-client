@@ -27,8 +27,8 @@ export const updateTeamSuccess = team => ({
 	team
 });
 
-export const updateTeam = (id, team) => dispatch => {
-	const authToken = loadAuthToken();
+export const updateTeam = (id, team) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
 	console.log(team.team)
 	return fetch(`${API_BASE_URL}/api/players/${id}/team`, {
 		method: 'PUT', 
@@ -49,8 +49,8 @@ export const updateTeam = (id, team) => dispatch => {
 	.catch(err => console.error(err));
 }
 
-export const updateDivision = (playerId, {division}) => dispatch => {
-	const authToken = loadAuthToken();
+export const updateDivision = (playerId, {division}) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
 	console.log(division);
 	return fetch(`${API_BASE_URL}/api/players/${playerId}/division`, {
 		method: 'PUT', 
@@ -71,8 +71,8 @@ export const updateDivision = (playerId, {division}) => dispatch => {
 
 }
 
-export const fetchPlayer = (playerId) => dispatch => {
-	const authToken = loadAuthToken();
+export const fetchPlayer = (playerId) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/api/players/${playerId}`, {
 		method: 'GET',
@@ -99,10 +99,10 @@ export const fetchPlayer = (playerId) => dispatch => {
 	});
 }
 
-export const registerPlayer = player => dispatch => {
+export const registerPlayer = player => (dispatch, getState) => {
 	console.log(player);
 	//need to get something from square plus add in a transactions table to keep track of who pays
-	const authToken = loadAuthToken();
+	const authToken = getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/api/players`, {
 		method: 'POST', 
@@ -126,11 +126,11 @@ export const registerPlayer = player => dispatch => {
 		});
 };
 
-export const togglePaid = (id, value) => dispatch => {
+export const togglePaid = (id, value) => (dispatch, getState) => {
 	console.log(value);
 	const newPaidValue = !value;
 	console.log(newPaidValue);
-	const authToken = loadAuthToken();
+	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/api/players/${id}/paid`, {
 		method: 'post',
 		headers: {

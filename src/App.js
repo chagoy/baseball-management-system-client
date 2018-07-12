@@ -22,7 +22,7 @@ export class App extends Component {
         <Route path="/players/:id" component={Player} />
         <Route path="/create-team" component={CreateTeam} />
         <div className="flex-row">
-          <LogoutForm />
+          { this.props.loggedIn ? <LogoutForm /> : '' }
         </div>
       </div>
     );

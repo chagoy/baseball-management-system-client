@@ -21,9 +21,13 @@ export function Dashboard(props) {
 	)
 }
 
-const mapStateToProps = state => ({
-	loggedIn: state.auth.currentUser !== null,
-	user: state.auth.currentUser
-});
+const mapStateToProps = state => {
+
+	console.log(state)
+	return {
+		loggedIn: state.auth.currentUser !== null,
+		user: state.auth.currentUser
+	}
+	};
 
 export default connect(mapStateToProps)(Dashboard);

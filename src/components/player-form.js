@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Radio from './radio';
 import Input from './input';
 import Select from './select';
+import File from './file-input';
 import {registerPlayer} from '../actions/players';
 import Contract from './contract';
 import {required, nonEmpty, length, isTrimmed, maxValue, number} from '../validators';
@@ -53,7 +54,11 @@ export class PlayerForm extends React.Component {
 						type="integer" 
 						name="year" 
 						validators={[required, nonEmpty, number]}
-						warn={[required, nonEmpty, dayMax, number]}
+						warn={[required, nonEmpty, number]}
+				/>
+				<label htmlFor="certificate">Birth Certificate</label>
+				<Field name="certificate"
+						component={File}
 				/>
 				<label htmlFor="sport">Baseball or softball?</label>
 				<Field name="sport" 

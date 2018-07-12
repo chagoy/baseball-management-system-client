@@ -333,3 +333,11 @@ button:hover {
 	-webkit-transition: all 0.3 ease;
 	cursor: pointer;
 }
+
+.form-error {
+	color: red;
+}
+
+.form-warning {
+	color: red;
+}
