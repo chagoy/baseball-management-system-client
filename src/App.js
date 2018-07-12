@@ -9,6 +9,7 @@ import RegisterPage from './components/register-page';
 import RegisterPlayer from './components/register-player';
 import Player from './components/player';
 import CreateTeam from './components/create-team';
+import LogoutForm from './components/logout';
 
 export class App extends Component {
   render() {
@@ -20,6 +21,9 @@ export class App extends Component {
       	<Route exact path="/register-player" component={RegisterPlayer} />
         <Route path="/players/:id" component={Player} />
         <Route path="/create-team" component={CreateTeam} />
+        <div className="flex-row">
+          <LogoutForm />
+        </div>
       </div>
     );
   }

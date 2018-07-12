@@ -20,18 +20,19 @@ export class Player extends React.Component {
 		`${this.props.player.user.fullName} - ${this.props.player.user.phone} - ${this.props.player.user.email}`
 		: 'no parent saved';
 		return (
-			<div>
-				<h1>{this.props.player.fullName}</h1>
-				<h4>{this.props.player.dob}</h4>
-				<p>{this.props.team ? `${this.props.team.name} - ${this.props.team.division}` : 'no team'}</p>
-				<div>
-					<h4>parent information</h4>
-					<p>{parentInfo}</p>
+			<div className="flex-row">
+				<div className="flex-c-50">
+					<h1>{this.props.player.fullName}</h1>
+					<p>Date of Birth: <span className="player-text-span">{this.props.player.dob}</span></p>
+					<p>Playing Age: <span className="player-text-span">{this.props.player.playingAge}</span></p>
+					<p>Team: <strong>{this.props.team ? `${this.props.team.name} - ${this.props.team.division}` : 'no team'}</strong></p>
+					<div>
+						<h4>parent information</h4>
+						<p>{parentInfo}</p>
+					</div>
 				</div>
-				<div>
-					<label>Change Division</label>
+				<div className="flex-c-50">
 					<DivisionSelect id={this.props.player.id} />
-					<label>Change Team</label>
 					<TeamSelect id={this.props.player.id} />
 				</div>
 			</div>

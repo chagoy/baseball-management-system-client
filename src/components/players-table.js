@@ -4,6 +4,7 @@ import { fetchProtectedData } from '../actions/protected-data';
 import moment from 'moment';
 import PayConfirm from './pay-confirm';
 import {Link} from 'react-router-dom';
+import './players-table.css'
 
 export class PlayersTable extends React.Component {
 	componentDidMount() {
@@ -30,9 +31,9 @@ export class PlayersTable extends React.Component {
 			</tr>
 			);
 		return (
-			<div>
+			<div class="flex-row">
 				<table>
-					<tr>
+					<thead>
 						<th>Sport</th>
 						<th>Name</th>
 						<th>Date of Birth</th>
@@ -40,7 +41,7 @@ export class PlayersTable extends React.Component {
 						<th>Division</th>
 						<th>Team</th>
 						<th>Paid?</th>
-					</tr>
+					</thead>
 					<tbody>
 						{players}
 					</tbody>

@@ -11,7 +11,10 @@ export class DivisionForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+			<form
+				className="form" 
+				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+					<label for="division">Change Division</label>
 					<Field placeholder={this.props.division} component={Select} name="division" options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
 					<button type="submit">Change</button>
 				</form>

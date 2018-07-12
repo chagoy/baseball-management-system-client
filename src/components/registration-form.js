@@ -8,6 +8,7 @@ import {required, nonEmpty, matches, length, isTrimmed, email, phoneNumber, zipC
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
+
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
 		const { firstName, lastName, username, password, email, phone, texting, address, city, zipcode } = values;

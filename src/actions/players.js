@@ -2,7 +2,7 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 import {loadAuthToken} from '../local-storage';
-
+import {fetchProtectedData as fetchPlayers} from './protected-data';
 export const FETCH_PLAYER_SUCCESS = 'FETCH_PLAYER_SUCCESS';
 export const fetchPlayerSuccess = player => ({
 	type: FETCH_PLAYER_SUCCESS,
@@ -126,17 +126,22 @@ export const registerPlayer = player => dispatch => {
 		});
 };
 
-export const togglePaid = id => dispatch => {
+export const togglePaid = (id, value) => dispatch => {
+	console.log(value);
+	const newPaidValue = !value;
+	console.log(newPaidValue);
 	const authToken = loadAuthToken();
 	return fetch(`${API_BASE_URL}/api/players/${id}/paid`, {
 		method: 'post',
 		headers: {
 			'content-type': 'application/json', 
 			'Authorization': `Bearer ${authToken}`
-		}
+		},
+		body: JSON.stringify({'paid': newPaidValue})
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
+	.then(res => dispatch(fetchPlayers()))
 	.catch(err => {
 		const {reason, message, location} = err;
 		if (reason === 'ValidationError') {

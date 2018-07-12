@@ -10,12 +10,13 @@ export function Dashboard(props) {
 	};
 
 	return (
-		<div className="home">
+		<div className="flex-row">
 			<h2>Dashboard</h2>
-			<Link to="/register-player">Register a player</Link>
-			{ props.user.admin ? <Link to="/create-team">Create a team</Link> : ''}
-			{ props.user.admin ? <PlayersTable /> : ''}
-			<LogoutForm />
+			<div className="flex-row">
+				<Link to="/register-player" className="link">Register a player</Link>
+				{ props.user.admin ? <Link to="/create-team" className="link">Create a team</Link> : ''}
+				{ props.user.admin ? <PlayersTable /> : ''}
+			</div>
 		</div>
 	)
 }

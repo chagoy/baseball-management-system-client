@@ -12,7 +12,7 @@ export class TeamForm extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+			<form className="form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<label htmlFor="name">Team Name</label>
 				<Field component={Input} type="text" name="name" />
 				<label htmlFor="division">Division</label>
