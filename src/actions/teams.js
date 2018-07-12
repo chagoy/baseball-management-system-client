@@ -1,6 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
-import {loadAuthToken} from '../local-storage';
+// import {loadAuthToken} from '../local-storage';
 import {SubmissionError} from 'redux-form';
 
 export const FETCH_TEAM_SUCCESS = 'FETCH_TEAM_SUCCESS';
@@ -27,8 +27,8 @@ export const fetchAllTeamsError = error => ({
 	error
 })
 
-export const createTeam = team => dispatch => {
-	const authToken = loadAuthToken();
+export const createTeam = team => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/api/teams`, {
 		method: 'POST',
