@@ -28,6 +28,9 @@ export default class Input extends React.Component {
                     {warning}
                 </label>
                 <input
+                    aria-relevant='all'
+                    aria-required='true'
+                    aria-label={this.props.input.name}
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}

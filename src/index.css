@@ -336,6 +336,8 @@ button:hover {
 
 .form-error {
 	color: red;
+	font-size: 12px;
+	padding-bottom: 5px;
 }
 
 .form-warning {

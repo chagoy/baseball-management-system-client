@@ -19,7 +19,7 @@ export class LoginForm extends React.Component {
 			);
 		}
 		return (
-			<form className="form login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+			<form role="login" className="form login-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				{error}
 				<label htmlFor="username">Username</label>
 				<Field component={Input} type="text" name="username" id="username" />

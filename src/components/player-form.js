@@ -18,7 +18,9 @@ export class PlayerForm extends React.Component {
 
 	render() {
 		return (
-			<form className="form"
+			<form 
+					role="form"
+					className="form"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
 					id="player-reg">
 				<label htmlFor="firstName">First Name</label>
@@ -86,7 +88,7 @@ export class PlayerForm extends React.Component {
 						validators={[required, isTrimmed, nonEmpty]}
 						warn={[required, isTrimmed, nonEmpty]}
 				/> 
-				<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
+				<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
 			</form>
 		)
 	}
