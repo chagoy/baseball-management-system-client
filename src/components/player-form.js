@@ -7,10 +7,27 @@ import File from './file-input';
 import {registerPlayer} from '../actions/players';
 import Contract from './contract';
 import {required, nonEmpty, length, isTrimmed, maxValue, number} from '../validators';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import InjectedCheckoutForm from './checkout';
 const monthMax = maxValue(12);
 const dayMax = maxValue(31);
 
 export class PlayerForm extends React.Component {
+	constructor() {
+    super();
+    this.state = {stripe: null};
+  }
+
+  componentDidMount() {
+    if (window.Stripe) {
+      this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
+    } else { 
+      document.querySelector('#stripe-js').addEventListener('load', () => {
+        this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
+      });
+    }
+  }
+
 	onSubmit(values) {
 		return this.props.dispatch(registerPlayer(values));
 	}
@@ -88,6 +105,13 @@ export class PlayerForm extends React.Component {
 						validators={[required, isTrimmed, nonEmpty]}
 						warn={[required, isTrimmed, nonEmpty]}
 				/> 
+
+				<StripeProvider stripe={this.state.stripe}>
+						<Elements>
+							<InjectedCheckoutForm />
+						</Elements>
+				</StripeProvider>
+
 				<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
 			</form>
 		)

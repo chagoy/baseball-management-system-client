@@ -11,6 +11,7 @@ import Player from './components/player';
 import CreateTeam from './components/create-team';
 import LogoutForm from './components/logout';
 export class App extends Component {
+
   render() {
     return (
       <div className="App flex-wrap">

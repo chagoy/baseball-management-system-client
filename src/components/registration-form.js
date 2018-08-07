@@ -5,16 +5,19 @@ import {login} from '../actions/auth';
 import Input from './input';
 import Radio from './radio';
 import {required, nonEmpty, matches, length, isTrimmed, email, phoneNumber, zipCode} from '../validators';
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
+const userNameLength = length({min: 4, max: 16});
 
 
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
+		const {reset} = this.props;
 		const { firstName, lastName, username, password, email, phone, texting, address, city, zipcode } = values;
 		const user = { firstName, lastName, username, password, email, phone, texting, address, city, zipcode };
 		return this.props.dispatch(registerUser(user))
 				.then(() => this.props.dispatch(login(username, password)))
+				.then(() => reset())
 				.catch(err => console.log(err)) //dispatch to another action
 	}
 
@@ -22,7 +25,7 @@ export class RegistrationForm extends React.Component {
 		return (
 			<form 
 				role="registration-form"
-				className="login-form"
+				className="form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values)
 			)}>
 				<label htmlFor="firstName">First Name</label>
@@ -53,10 +56,11 @@ export class RegistrationForm extends React.Component {
 						validators={[required, isTrimmed, nonEmpty, phoneNumber]} 
 						warn={[required, phoneNumber, isTrimmed, nonEmpty]} 
 				/>
-				<label htmlFor="texting">Text Messages?</label>
-				<Field component={Radio} 
-						name="texting" 
-						options={{Yes: 'Yes', No: 'No'}} 
+
+				<Field component={Radio}
+					   name="texting"
+					   label="Receive text messages?"
+					   options={{Yes: 'Yes', No: 'No'}}
 				/>
 				<label htmlFor="address">Address</label>
 				<Field component={Input} 
@@ -83,22 +87,22 @@ export class RegistrationForm extends React.Component {
 				<Field component={Input} 
 						type="text" 
 						name="username" 
-						validators={[required, isTrimmed, nonEmpty]} 
-						warn={[required, isTrimmed, nonEmpty]} 
+						validators={[required, isTrimmed, nonEmpty, userNameLength]}
+						warn={[required, isTrimmed, nonEmpty, userNameLength]}
 				/>
 				<label htmlFor="password">Password</label>
 				<Field component={Input} 
 						type="password" 
 						name="password" 
-						validators={[required, isTrimmed, nonEmpty]} 
-						warn={[required, isTrimmed, nonEmpty]} 
+						validators={[required, isTrimmed, nonEmpty, passwordLength]}
+						warn={[required, isTrimmed, nonEmpty, passwordLength]}
 				/>
 				<label htmlFor="passwordConfirm">Confirm password</label>
 				<Field component={Input} 
 						type="password" 
 						name="passwordConfirm" 
-						validators={[required, isTrimmed, nonEmpty, matchesPassword]} 
-						warn={[required, isTrimmed, nonEmpty, matchesPassword]} 
+						validators={[required, isTrimmed, nonEmpty, matchesPassword, passwordLength]}
+						warn={[required, isTrimmed, nonEmpty, matchesPassword, passwordLength]}
 				/>
 				<button type="submit" disabled={this.props.pristine || this.props.submitting}>
 					Register
