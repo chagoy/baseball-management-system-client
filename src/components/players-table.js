@@ -31,7 +31,7 @@ export class PlayersTable extends React.Component {
 			</tr>
 			);
 		return (
-			<div class="flex-row">
+			<div className="flex-row">
 				<table>
 					<thead>
 						<th>Sport</th>

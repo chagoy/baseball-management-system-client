@@ -78,6 +78,7 @@ export class PlayerForm extends React.Component {
 				<label htmlFor="certificate">Birth Certificate</label>
 				<Field name="certificate"
 						component={File}
+						className="form-input"
 				/>
 				<label htmlFor="sport">Baseball or softball?</label>
 				<Field name="sport" 
