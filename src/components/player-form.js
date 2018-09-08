@@ -20,10 +20,10 @@ export class PlayerForm extends React.Component {
 
   componentDidMount() {
     if (window.Stripe) {
-      this.setState({stripe: window.Stripe(process.env.STRIPE_KEY)});
+      this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
     } else { 
       document.querySelector('#stripe-js').addEventListener('load', () => {
-        this.setState({stripe: window.Stripe(process.env.STRIPE_KEY)});
+        this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
       });
     }
   }
@@ -31,7 +31,6 @@ export class PlayerForm extends React.Component {
 	onSubmit(values) {
 		return this.props.dispatch(registerPlayer(values));
 	}
-
 
 	render() {
 		return (
