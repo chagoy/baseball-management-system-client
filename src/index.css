@@ -1,3 +1,8 @@
+body {
+	/*padding: 0 0;*/
+	margin: 0 auto;
+}
+
 .flex-wrap, .flex-wrap-full, .flex-wrap-narrow {
 	margin-right: auto;
 	margin-left: auto;
@@ -209,7 +214,7 @@
 
 * {
 	font-family: Helvetica Neue, Arial, sans-serif;
-	background-color: #FBFBFB;
+	/*background-color: #FBFBFB;*/
 }
 
 p, h1, h2, h3, h4, h5, h6, p, span, label, input, textarea {
@@ -218,6 +223,7 @@ p, h1, h2, h3, h4, h5, h6, p, span, label, input, textarea {
 
 a {
 	color: #003f91;
+	text-decoration: none;
 }
 
 a:visited {
