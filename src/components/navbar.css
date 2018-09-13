@@ -1,0 +1,16 @@
+nav {
+	background: linear-gradient(to right, #4caf50, #9EE493);
+	padding: 18px 14px;
+}
+
+@media(max-width: 769px) {
+	a.link {
+		visibility: visible;
+		padding-left: 10px;
+		width: 100%;
+		font-size: 14px;
+		background-color: none;
+		color: white;
+		/*text-decoration: none !important;*/
+	}
+}

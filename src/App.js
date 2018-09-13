@@ -10,19 +10,24 @@ import RegisterPlayer from './components/register-player';
 import Player from './components/player';
 import CreateTeam from './components/create-team';
 import LogoutForm from './components/logout';
+import Navbar from './components/navbar';
+
 export class App extends Component {
 
   render() {
     return (
-      <div className="App flex-wrap">
-      	<Route exact path="/" component={LandingPage} />
-      	<Route exact path="/register" component={RegisterPage} />
-      	<Route exact path="/dashboard" component={Dashboard} />
-      	<Route exact path="/register-player" component={RegisterPlayer} />
-        <Route path="/players/:id" component={Player} />
-        <Route path="/create-team" component={CreateTeam} />
-        <div className="flex-row">
-          { this.props.loggedIn ? <LogoutForm /> : '' }
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/register-player" component={RegisterPlayer} />
+          <Route path="/players/:id" component={Player} />
+          <Route path="/create-team" component={CreateTeam} />
+          <div className="flex-row">
+            { this.props.loggedIn ? <LogoutForm /> : '' }
+          </div>
         </div>
       </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm, focus } from 'redux-form';
+import { Redirect } from 'react-router-dom';
 import Select from './select';
 import {getAllTeams} from '../actions/teams';
 import {updateTeam} from '../actions/players';
@@ -11,7 +12,8 @@ export class TeamForm extends React.Component {
 	}
 
 	onSubmit(values) {
-		return this.props.dispatch(updateTeam(this.props.id, values))
+		this.props.dispatch(updateTeam(this.props.id, values))
+		return <Redirect to='dashboard' />
 	}
 
 	render() {
