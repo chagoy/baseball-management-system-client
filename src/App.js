@@ -9,8 +9,8 @@ import RegisterPage from './components/register-page';
 import RegisterPlayer from './components/register-player';
 import Player from './components/player';
 import CreateTeam from './components/create-team';
-import LogoutForm from './components/logout';
 import Navbar from './components/navbar';
+import Team from './components/team';
 
 export class App extends Component {
 
@@ -24,10 +24,8 @@ export class App extends Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register-player" component={RegisterPlayer} />
           <Route path="/players/:id" component={Player} />
+          <Route path="/team/:id" component={Team} />
           <Route path="/create-team" component={CreateTeam} />
-          <div className="flex-row">
-            { this.props.loggedIn ? <LogoutForm /> : '' }
-          </div>
         </div>
       </div>
     );

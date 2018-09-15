@@ -12,7 +12,7 @@ export class LogoutForm extends React.Component {
 
 	render() {
 		return (
-			<Link to="/" onClick={e => this.handleClick(e)}>Logout</Link>
+				<Link className="logout-link" to="/" onClick={e => this.handleClick(e)}>Logout</Link>
 		);
 	}
 }

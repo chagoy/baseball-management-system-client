@@ -3,6 +3,7 @@ import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 // import {loadAuthToken} from '../local-storage';
 import {fetchProtectedData as fetchPlayers} from './protected-data';
+
 export const FETCH_PLAYER_SUCCESS = 'FETCH_PLAYER_SUCCESS';
 export const fetchPlayerSuccess = player => ({
 	type: FETCH_PLAYER_SUCCESS,
@@ -15,6 +16,18 @@ export const fetchPlayerError = error => ({
 	error
 });
 
+export const FETCH_PLAYERS_SUCCESS = 'FETCH_PLAYERS_SUCCESS';
+export const fetchPlayersSuccess = players => ({
+	type: FETCH_PLAYERS_SUCCESS, 
+	players
+});
+
+export const FETCH_PLAYERS_ERROR = 'FETCH_PLAYERS_ERROR';
+export const fetchPlayersError = error => ({
+	type: FETCH_PLAYERS_ERROR,
+	error
+})
+
 export const UPDATE_PLAYER_DIVISION = 'UPDATE_PLAYER_DIVISION';
 export const updatePlayerDivision = player => ({
 	type: UPDATE_PLAYER_DIVISION,
@@ -26,6 +39,21 @@ export const updateTeamSuccess = team => ({
 	type: UPDATE_TEAM_SUCCESS,
 	team
 });
+
+export const fetchAllPlayers = () => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
+	return fetch(`${API_BASE_URL}/api/players`, {
+		method: 'GET', 
+		headers: {
+			'content-type': 'application/json',
+			'Authorization': `Bearer ${authToken}`
+		}
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(fetchPlayersSuccess(data)))
+	.catch(err => console.error(err))
+}
 
 export const updateTeam = (id, team) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
@@ -46,7 +74,7 @@ export const updateTeam = (id, team) => (dispatch, getState) => {
 		dispatch(fetchPlayerSuccess(data));
 		dispatch(updateTeamSuccess(data.team));
 	})
-	.catch(err => console.error(err));
+	.catch(err => dispatch(fetchPlayersError(err)));
 }
 
 export const updateDivision = (playerId, {division}) => (dispatch, getState) => {

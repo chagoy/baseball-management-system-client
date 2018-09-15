@@ -356,3 +356,7 @@ form label {
 .form-warning {
 	color: red;
 }
+
+.logout-link {
+	float: right;
+}
