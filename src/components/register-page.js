@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
 import RegistrationForm from './registration-form';
+require('./register-page.css');
 
 export function RegisterPage(props) {
 	if (props.loggedIn) {
@@ -11,6 +12,7 @@ export function RegisterPage(props) {
 
 	return (
 		<div className="home">
+		<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>
 			<h2>Welcome new users, to register a player, you need to register yourself first</h2>
 			<p>this is a form to sign up</p>
 			<RegistrationForm />

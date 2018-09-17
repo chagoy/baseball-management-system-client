@@ -23,6 +23,7 @@ export class App extends Component {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register-player" component={RegisterPlayer} />
+          <Route exact path="/login" component={LoginPage} />
           <Route path="/players/:id" component={Player} />
           <Route path="/team/:id" component={Team} />
           <Route path="/create-team" component={CreateTeam} />

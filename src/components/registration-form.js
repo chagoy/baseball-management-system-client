@@ -25,11 +25,12 @@ export class RegistrationForm extends React.Component {
 		return (
 			<form 
 				role="registration-form"
-				className="form"
+				className="form register-form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values)
 			)}>
 				<label htmlFor="firstName">First Name</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="firstName" 
 						validators={[required, nonEmpty, isTrimmed]} 
@@ -37,6 +38,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="lastName">Last Name</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="lastName" 
 						validators={[required, nonEmpty, isTrimmed]} 
@@ -44,6 +46,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="email">Email</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="email" 
 						validators={[required, nonEmpty, isTrimmed, email]} 
@@ -51,6 +54,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="phone">Phone Number</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="phone" 
 						validators={[required, isTrimmed, nonEmpty, phoneNumber]} 
@@ -64,6 +68,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="address">Address</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="address" 
 						validators={[required, nonEmpty]} 
@@ -71,6 +76,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="city">City</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="city" 
 						validators={[required, nonEmpty]} 
@@ -78,6 +84,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="zip">Zip Code</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="zipcode" 
 						validators={[required, zipCode, nonEmpty]} 
@@ -85,6 +92,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="username">Username</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="text" 
 						name="username" 
 						validators={[required, isTrimmed, nonEmpty, userNameLength]}
@@ -92,6 +100,7 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="password">Password</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="password" 
 						name="password" 
 						validators={[required, isTrimmed, nonEmpty, passwordLength]}
@@ -99,12 +108,13 @@ export class RegistrationForm extends React.Component {
 				/>
 				<label htmlFor="passwordConfirm">Confirm password</label>
 				<Field component={Input} 
+						inputClass="register-input"
 						type="password" 
 						name="passwordConfirm" 
 						validators={[required, isTrimmed, nonEmpty, matchesPassword, passwordLength]}
 						warn={[required, isTrimmed, nonEmpty, matchesPassword, passwordLength]}
 				/>
-				<button type="submit" disabled={this.props.pristine || this.props.submitting}>
+				<button className="register-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
 					Register
 				</button>
 			</form>

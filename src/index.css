@@ -219,6 +219,7 @@ body {
 
 p, h1, h2, h3, h4, h5, h6, p, span, label, input, textarea {
 	color: #393E41;
+	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
 }
 
 a {
@@ -246,7 +247,7 @@ button:hover {
 	color: #2D3142;
 	background-color: #BFC0C0;
 }*/
-
+/*
 .form {
 	position: relative;
 	z-index: 1;
@@ -306,7 +307,8 @@ form label {
 
 .landing-img {
 	vertical-align: top;
-}
+}*/
+
 
 .true {
 	background-color: #4CB944;
@@ -330,7 +332,7 @@ form label {
 	font-weight: 800;
 }
 
-.link {
+/*.link {
 	padding: 15px;
 }
 
@@ -355,8 +357,25 @@ form label {
 
 .form-warning {
 	color: red;
-}
+}*/
 
 .logout-link {
 	float: right;
+}
+
+.backgroundImage {
+	min-width: 100%;
+	width: 100%;
+	height: 100%;
+/*	min-height: 600px;
+	max-height: 800px;*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.ig-filter {
+	-webkit-filter: sepia(0.35) contrast(0.5) brightness(1.3) hue-rotate(-10deg) saturate(1.1);
+  filter: sepia(0.1) contrast(0.5) brightness(1.3) hue-rotate(-10deg) saturate(1.1);
 }

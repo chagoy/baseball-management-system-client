@@ -7,7 +7,7 @@ export const Radio = props => {
 			return (
 				<label key={`${index}`} htmlFor={`${props.input.name}-${index}`}>
 					<Field id={`${props.input.name}`}
-						   className="uk-radio"
+				  className="radio"
 					component="input"
 					name={props.input.name}
 					type="radio"
@@ -18,11 +18,11 @@ export const Radio = props => {
 			);
 		};
 		return (
-			<div className="uk-margin">
-				<div className="uk-form-label">
+			<div className="radio-control">
+				<div className="radio-label">
 					{props.label}
 				</div>
-				<div class="uk-form-controls">
+				<div class="radio-buttons">
 					{props.options && Object.keys(props.options).map(renderRadioButtons)}
 				</div>
 			</div>
