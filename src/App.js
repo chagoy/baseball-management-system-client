@@ -11,6 +11,8 @@ import Player from './components/player';
 import CreateTeam from './components/create-team';
 import Navbar from './components/navbar';
 import Team from './components/team';
+import Footer from './components/footer';
+import AdminPage from './components/admin-page';
 
 export class App extends Component {
 
@@ -27,7 +29,9 @@ export class App extends Component {
           <Route path="/players/:id" component={Player} />
           <Route path="/team/:id" component={Team} />
           <Route path="/create-team" component={CreateTeam} />
+          <Route path="/admin" component={AdminPage} />
         </div>
+        {/*<Footer/>*/}
       </div>
     );
   }

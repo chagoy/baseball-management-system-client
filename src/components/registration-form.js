@@ -4,6 +4,7 @@ import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
 import Radio from './radio';
+import {Link} from 'react-router-dom';
 import {required, nonEmpty, matches, length, isTrimmed, email, phoneNumber, zipCode} from '../validators';
 const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
@@ -28,6 +29,7 @@ export class RegistrationForm extends React.Component {
 				className="form register-form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values)
 			)}>
+				<h3 className="register-form-title">Register with Baseball & Softball</h3>
 				<label htmlFor="firstName">First Name</label>
 				<Field component={Input} 
 						inputClass="register-input"
@@ -117,6 +119,9 @@ export class RegistrationForm extends React.Component {
 				<button className="register-button" type="submit" disabled={this.props.pristine || this.props.submitting}>
 					Register
 				</button>
+				<p className="login-section">
+					or <Link to="/login">log in</Link>
+				</p>
 			</form>
 		);
 	}

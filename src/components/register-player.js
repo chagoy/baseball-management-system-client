@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import PlayerForm from './player-form';
 import Back from './back';
+require('./register-player.css');
 
 export function RegisterPlayer(props) {
 	if (!props.loggedIn) {
@@ -11,9 +12,8 @@ export function RegisterPlayer(props) {
 
 	return (
 		<div>
-			<main className="whatever">
-				<h1>Register a player</h1>
-				<p>Please complete the form.</p>
+			<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>
+			<main className="home">
 				<PlayerForm />
 			</main>
 			<footer>

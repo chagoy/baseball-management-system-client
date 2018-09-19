@@ -1,4 +1,4 @@
-.register-form {
+.player-form {
 	background-color: rgba(255, 255, 255, 0.7);
 	width: 80%;
 	text-align: center;
@@ -8,12 +8,7 @@
 	margin-top: 35px;
 }
 
-.register-form-title {
-	font-size: 1.7rem;
-	color: #05007B;
-}
-
-.register-input {
+.player-input {
 	border-radius: 1%;
 	border: none;
 	padding: 10px;
@@ -24,23 +19,12 @@
 	background-color: transparent !important;
 }
 
-.errorClass {
-	border-radius: 1%;
-	border: none;
-	padding: 10px;
-	width: 46%;
-	font-size: 1.1rem;
-	text-align: center;
-	background-color: transparent !important;
-	border: 2px solid red;
-}
-
-.register-input:focus {
+.player-input:focus {
 	color: rgba(0, 0, 0, 0.6);
 	background-color: transparent !important;
 }
 
-.register-button {
+.player-button {
 	padding: 12px 30px;
 	border: none;
 	color: white;
@@ -52,30 +36,40 @@
 	filter: drop-shadow(0px 0px 1.3px rgba(255, 255, 255, 0.9));
 }
 
-.radio-label {
-	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
-	color: #393E41;
+.player-select {
+	border-radius: 1%;
+	border: none;
+	padding: 10px;
+	width: 46%;
+	font-size: 1.1rem;
+	text-align: center;
+	border: 2px solid rgba(0, 0, 0, 0.7);
+	background-color: transparent !important;
 }
 
-div.radio-buttons label {
-	padding-right: 30px;
+.label-control {
+	display: block;
 }
 
-.login-section a {
-	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
-	color: #D90000;
+.checkout {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.contract {
+	padding: 15px 15px;
+}
+
+.form-head {
+	font-size: 1.5rem;
 }
 
 @media (max-width: 767px) {
-	.register-form {
+	.player-form {
 		width: 100%;
 	}
 
-	.register-input {
-		width: 70%;
-	}
-
-	.errorClass {
-		width: 70%;
+	.checkout {
+		width: 95%;
 	}
 }

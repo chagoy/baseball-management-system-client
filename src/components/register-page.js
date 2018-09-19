@@ -12,11 +12,9 @@ export function RegisterPage(props) {
 
 	return (
 		<div className="home">
-		<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>
-			<h2>Welcome new users, to register a player, you need to register yourself first</h2>
-			<p>this is a form to sign up</p>
-			<RegistrationForm />
-			<Link to="/">Or log in</Link>
+			<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>
+				
+				<RegistrationForm />
 		</div>
 	);
 }

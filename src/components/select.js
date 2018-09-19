@@ -15,7 +15,7 @@ export const Select = props => {
 		return (
 			<div className="">
 				<div className="">{props.label}</div>
-				<select {...props.input} className="">
+				<select {...props.input} className={props.selectInput}>
 					<option value="">Select</option>
 						{Object.keys(props.options).map(renderSelectOptions)}
 				</select>

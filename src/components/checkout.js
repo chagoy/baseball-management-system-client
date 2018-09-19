@@ -35,7 +35,7 @@ class InjectedCheckoutForm extends React.Component {
 		return (
 			<div className='checkout'>
 				<CardElement />
-				<button onClick={this.submit}>Send</button>
+				<button className="player-button" onClick={this.submit}>Send</button>
 			</div>
 		)
 	}

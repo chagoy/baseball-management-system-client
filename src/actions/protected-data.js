@@ -13,6 +13,20 @@ export const fetchProtectedDataError = error => ({
 	error
 });
 
+export const fetchUsersPlayers = () => (dispatch, getState) => {
+	// const authToken = getState().auth.authToken;
+
+	// return fetch(`${API_BASE_URL}/auth/protected`, {
+	// 	method: 'GET',
+	// 	headers: {
+	// 		Authorization: `Bearer ${authToken}`
+	// 	}
+	// })
+	// .then(res => normalizeResponseErrors(res))
+	// .then(res => res.json())
+	// .then((data) => dispatch(fetchUserPlayersData))
+}
+
 export const fetchProtectedData = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/auth/protected`, {

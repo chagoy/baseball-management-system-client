@@ -1,0 +1,16 @@
+.dashboard-screen {
+	width: 86%;
+	background-color: rgba(255, 255, 255, 0.7);
+	margin: 0 auto;
+	padding: 20px 10px;
+}
+
+.header-text {
+	font-size: 1.5rem;
+}
+
+@media (max-width: 767px) {
+	.dashboard-screen {
+		width: 100%;
+	}
+}

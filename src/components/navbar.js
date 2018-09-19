@@ -17,6 +17,7 @@ class Navbar extends React.Component {
 			</div>
 		} else {
 			return <div>
+				<Link className="link right-side-link" to={'/register-player'}>Register</Link>
 				<Link className="link right-side-link" to={'/register'}>My Team</Link>
 				<Link className="link right-side-link" to={'/register'}>Schedule</Link>
 				<Link className="link right-side-link" to={'/register'}>Standings</Link>

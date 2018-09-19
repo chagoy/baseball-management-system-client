@@ -11,6 +11,7 @@ export default ({
 }) => (
 	<input type="file"
 			onChange={handleChange(onChange)} 
+			className={props.fileClass}
 			onBlur={handleChange(onBlur)}
 			{...inputProps} {...props} />
 );

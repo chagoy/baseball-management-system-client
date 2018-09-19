@@ -22,7 +22,7 @@ export const Radio = props => {
 				<div className="radio-label">
 					{props.label}
 				</div>
-				<div class="radio-buttons">
+				<div className="radio-buttons">
 					{props.options && Object.keys(props.options).map(renderRadioButtons)}
 				</div>
 			</div>
