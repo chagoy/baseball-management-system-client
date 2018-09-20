@@ -12,12 +12,19 @@ export class TeamForm extends React.Component {
 
 	render() {
 		return (
-			<form className="form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+			<form className="team-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+				<h3>Create A Team</h3>
 				<label htmlFor="name">Team Name</label>
-				<Field component={Input} type="text" name="name" />
+				<Field component={Input} 
+							inputClass='team-input'
+							type="text" 
+							name="name" />
 				<label htmlFor="division">Division</label>
-				<Field component={Select} name="division" options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
-				<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
+				<Field component={Select} 
+							selectInput='team-select'
+							name="division" 
+							options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
+				<button type="submit" className="team-button" disabled={this.props.pristine || this.props.submitting}>Submit</button>
 			</form>
 		);
 	}

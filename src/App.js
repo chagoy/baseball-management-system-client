@@ -8,18 +8,19 @@ import LoginPage from './components/login-page';
 import RegisterPage from './components/register-page';
 import RegisterPlayer from './components/register-player';
 import Player from './components/player';
-import CreateTeam from './components/create-team';
+import AdminCreate from './components/admin-create';
 import Navbar from './components/navbar';
 import Team from './components/team';
 import Footer from './components/footer';
 import AdminPage from './components/admin-page';
-
+import CustomNavbar from './components/custom-navbar';
 export class App extends Component {
 
   render() {
     return (
       <div className="App">
         <Navbar />
+        {/*<CustomNavbar />*/}
         <div className="container">
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/register" component={RegisterPage} />
@@ -28,7 +29,7 @@ export class App extends Component {
           <Route exact path="/login" component={LoginPage} />
           <Route path="/players/:id" component={Player} />
           <Route path="/team/:id" component={Team} />
-          <Route path="/create-team" component={CreateTeam} />
+          <Route path="/create" component={AdminCreate} />
           <Route path="/admin" component={AdminPage} />
         </div>
         {/*<Footer/>*/}

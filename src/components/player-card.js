@@ -11,9 +11,7 @@ export default function PlayerCard(props) {
 				<p className="card-muted">{props.player.sport} - {props.player.dob}</p>
 				<p className="card-body">Playing Age: {props.player.playingAge}</p>
 				<p className="card-body">Division: {typeof props.player.team !== 'undefined' ? props.player.team.division : 'none'}</p>
-				<p className="card-body">Team: <a href="`/team/${typeof props.player.team !== 'undefined' ? props.player.team.id : '/dashboard'}`">
-				{typeof props.player.team !== 'undefined' ? props.player.team.name : 'none'}</a>
-				</p>
+				<p className="card-body">Team: {typeof props.player.team !== 'undefined' ? props.player.team.name : 'none'}</p>
 				
 			</div>
 		)

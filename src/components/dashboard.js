@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import PlayersTable from './players-table';
 import LogoutForm from './logout';
 import Back from './back';
 import { fetchProtectedData } from '../actions/protected-data';
@@ -20,11 +19,17 @@ export class Dashboard extends React.Component {
 
 		let playerCardData = this.props.players ? this.props.players.map(player => <PlayerCard player={player} />) : 'loading player cards';
 
+		let adminLinks = this.props.user.admin ? (
+			<div>
+				<Link to="/create" className="link">Admin Creation</Link>
+				<Link to="/admin" className="link">Table View</Link>
+			</div>
+		) : '';
+
 		return (
 			<div>
 				<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg" alt="a picture of a base" className="backgroundImage ig-filter" />
-				<Link to="/register-player" className="link">Register a player</Link>
-				{ this.props.user.admin ? <Link to="/create-team" className="link">Create a team</Link> : ''}
+				{ adminLinks }
 				<main className="dashboard-screen">
 					<div className="flex-wrap">
 						<div className="flex-row">

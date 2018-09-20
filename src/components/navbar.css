@@ -12,19 +12,34 @@ a.link {
 	color: white;
 	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
 	text-transform: uppercase;
-	font-size: 1.2em;
+	font-size: 0.8em;
 	letter-spacing: 1px;
 	padding-right: 25px;
 }
 
 a.right-side-link {
-	font-size: 1.2em;
+	font-size: 0.8em;
+	justify-content: flex-end;
 }
 
 a.link:hover, .right-side-link:hover {
 	/*transition: all 0.3s ease-in-out 0s;*/
 	text-decoration: underline;
 	text-decoration-color: #D90000;
+}
+
+.navbar-list {
+	list-style-type: none;
+	text-align: right;
+}
+
+.navbar-list > svg {
+	text-align: right;
+}
+
+.small-menu-classname {
+	color: white;
+	/*text-align: right;*/
 }
 
 @media(max-width: 769px) {
