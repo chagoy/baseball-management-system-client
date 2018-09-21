@@ -1,0 +1,48 @@
+ul.games-list {
+	list-style: none;
+	padding: 0;
+	width: 90%;
+}
+
+li.game-element {
+	/*border: 1px solid black;*/
+	padding: 5px 5px;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.game-heading {
+	display: flex;
+	justify-content: space-between;
+}
+
+.date-time {
+	float: left;
+	color: #929eb2;
+	font-size: 0.9rem;
+}
+
+.location {
+	float: right;
+	color: #929eb2;
+	font-size: 0.9rem;
+}
+
+.team-line {
+	margin: 0 0;
+	text-transform: uppercase; 
+	margin: 4px 3px;
+	font-size: 1.2rem;
+}
+
+.division {
+	font-size: 0.8rem;
+	color: #929eb2;
+	margin-left: 3px;
+}
+
+@media (max-width: 696px) {
+	.games-list {
+		width: 96%;
+	}
+}

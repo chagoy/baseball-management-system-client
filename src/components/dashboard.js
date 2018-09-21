@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import LogoutForm from './logout';
 import Back from './back';
+import GamesList from './games-list';
 import { fetchProtectedData } from '../actions/protected-data';
 import PlayerCard from './player-card';
 require('./dashboard.css');
@@ -16,7 +17,7 @@ export class Dashboard extends React.Component {
 		if (!this.props.loggedIn) {
 			return <Redirect to="/" />;
 		};
-
+		console.log(this.props.players);
 		let playerCardData = this.props.players ? this.props.players.map(player => <PlayerCard player={player} />) : 'loading player cards';
 
 		let adminLinks = this.props.user.admin ? (
@@ -40,7 +41,7 @@ export class Dashboard extends React.Component {
 							</div>
 							<div className="flex-c-50">
 								<h3 className="header-text">Your Upcoming Schedule</h3>
-								<p>None added yet</p>
+								<GamesList />
 							</div>
 						</div>
 					</div>

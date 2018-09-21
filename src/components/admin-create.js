@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import TeamForm from './team-form';
 import SeasonForm from './season-form';
+import GameForm from './game-form';
 require('./admin-create.css')
 
 export function AdminCreate(props) {
@@ -14,6 +15,7 @@ export function AdminCreate(props) {
 		<div className="create">
 			<TeamForm />
 			<SeasonForm />
+			<GameForm />
 		</div>
 	)
 }

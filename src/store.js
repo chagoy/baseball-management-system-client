@@ -5,6 +5,7 @@ import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import playerReducer from './reducers/player';
 import teamReducer from './reducers/team';
+import gameReducer from './reducers/game';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
@@ -14,6 +15,7 @@ const store = createStore(
 		auth: authReducer,
 		player: playerReducer,
 		team: teamReducer,
+		game: gameReducer,
 		protectedData: protectedDataReducer
 	}),
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),

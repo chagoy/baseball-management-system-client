@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchProtectedData } from '../actions/protected-data';
 require('./player-card.css');
 
 export default function PlayerCard(props) {
-	console.log(props.player)
 		return (
 			<div className="player-card">
 				<p className="card-header">{props.player.fullName}</p>
