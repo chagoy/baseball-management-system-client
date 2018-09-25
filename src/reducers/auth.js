@@ -18,7 +18,6 @@ export default function reducer(state = initialState, action) {
 			currentUser: null
 		});
 	} else if (action.type === AUTH_REQUEST) {
-		console.log('auth_request');
 		return Object.assign({}, state, {
 			loading: true,
 			error: null

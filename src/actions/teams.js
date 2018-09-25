@@ -16,15 +16,22 @@ export const fetchTeamError = error => ({
 })
 
 export const FETCH_ALL_TEAMS_SUCCESS = 'FETCH_ALL_TEAMS_SUCCESS';
-export const fetchAllTeamsSuccess = teams => ({
+export const fetchAllTeamsSuccess = (teams, loading) => ({
 	type: FETCH_ALL_TEAMS_SUCCESS,
-	teams
+	teams,
+	loading
 });
 
 export const FETCH_ALL_TEAMS_ERROR = 'FETCH_ALL_TEAMS_ERROR';
 export const fetchAllTeamsError = error => ({
 	type: FETCH_ALL_TEAMS_ERROR,
 	error
+});
+
+export const FETCH_ALL_TEAMS_LOADING = 'FETCH_ALL_TEAMS_LOADING';
+export const fetchAllTeamsLoading = loading => ({
+	type: FETCH_ALL_TEAMS_LOADING,
+	loading
 })
 
 export const createTeam = team => (dispatch, getState) => {
@@ -55,6 +62,7 @@ export const createTeam = team => (dispatch, getState) => {
 
 export const getAllTeams = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
+	dispatch(fetchAllTeamsLoading())
 	return fetch(`${API_BASE_URL}/api/teams`, {
 		method: 'GET',
 		headers: {

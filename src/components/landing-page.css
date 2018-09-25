@@ -1,4 +1,4 @@
-header {
+.header {
 	padding-top: 100px;
 	margin: 0 auto;
 	text-align: center;
@@ -37,6 +37,6 @@ header {
 	color: white;
 }
 
-button:hover, .register-button a:hover {
+.register-button a:hover {
 	color: #dcdcdc;
 }

@@ -29,6 +29,7 @@ export class PlayerForm extends React.Component {
   }
 
 	onSubmit(values) {
+		console.log(values);
 		return this.props.dispatch(registerPlayer(values));
 	}
 

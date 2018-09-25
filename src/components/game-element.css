@@ -1,11 +1,12 @@
-ul.games-list {
+.games-list {
 	list-style: none;
 	padding: 0;
 	width: 90%;
 }
 
-li.game-element {
+.game-element {
 	/*border: 1px solid black;*/
+	margin-bottom: 7px;
 	padding: 5px 5px;
 	background-color: rgba(255, 255, 255, 0.9);
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

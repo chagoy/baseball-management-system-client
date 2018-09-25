@@ -10,7 +10,7 @@ export class GamesList extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.games)
+		
 		let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement key={index} game={game }/>) : 'loading games';
 		return (
 			<ul className="games-list">

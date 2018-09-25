@@ -6,7 +6,7 @@ export default function GameElement(props) {
 		<li className="game-element">
 			<div className="flex-row game-heading">
 				<span className="date-time">
-					{props.game.time}
+					{props.game.date} - {props.game.realTime}
 				</span>
 				<span className="location">
 					{props.game.location}
