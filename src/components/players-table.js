@@ -32,7 +32,7 @@ export class PlayersTable extends React.Component {
 			);
 		return (
 			<div className="flex-row">
-				<table>
+				<table className="table">
 					<thead>
 						<th>Sport</th>
 						<th>Name</th>

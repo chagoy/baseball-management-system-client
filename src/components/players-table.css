@@ -1,4 +1,4 @@
-table {
+.table {
 	border-spacing: 1;
 	border-collapse: collapse;
 	background: white;
@@ -10,63 +10,63 @@ table {
 	position: relative;
 }
 
-table * {
+.table * {
 	position: relative;
 }
 
-table td, table th {
+.table td, .table th {
 	padding-left: 8px;
 }
 
-table thead tr {
+.table thead tr {
 	height: 60px;
 	background: #ffed86;
 	font-size: 16px;
 }
 
-table tbody tr {
+.table tbody tr {
 	height: 48px;
 	border-bottom: 1px solid #e3f1d5;
 }
 
-table tbody tr:last-child {
+.table tbody tr:last-child {
 	border: 0;
 }
 
-table td, table th {
+.table td, .table th {
 	text-align: left;
 }
 
-table td.l, table th.l {
+.table td.l, .table th.l {
 	text-align: right;
 }
 
-table td.c, table th.c {
+.table td.c, .table th.c {
 	text-align: center;
 }
 
 @media screen and (max-width: 35.5em) {
-	table {
+	.table {
 		display: block;
 	}
-	table > *, table tr, table td, table th {
+	.table > *, .table tr, .table td, .table th {
 		display: block;
 	}
-	table thead {
+	.table thead {
 		display: none;
 	}
-	table tbody tr {
+	.table tbody tr {
 		height: auto;
 		padding: 8px 0;
 	}
-	table tbody tr td {
+	.table tbody tr td {
 		padding-left: 45%;
 		margin-bottom: 12px;
 	}
-	table tbody tr td:last-child {
+	.table tbody tr td:last-child {
 		margin-bottom: 0;
 	}
-	table tbody tr td:before {
+	.table tbody tr td:before {
 		position: absolute;
 		font-weight: 700;
 		width: 40%;

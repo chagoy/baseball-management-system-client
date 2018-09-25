@@ -17,8 +17,8 @@ export class Dashboard extends React.Component {
 		if (!this.props.loggedIn) {
 			return <Redirect to="/" />;
 		};
-		console.log(this.props.players);
-		let playerCardData = this.props.players ? this.props.players.map(player => <PlayerCard player={player} />) : 'loading player cards';
+
+		let playerCardData = this.props.players ? this.props.players.map((player, index) => <PlayerCard key={index} player={player} />) : 'loading player cards';
 
 		let adminLinks = this.props.user.admin ? (
 			<div>
@@ -35,7 +35,7 @@ export class Dashboard extends React.Component {
 					<div className="flex-wrap">
 						<div className="flex-row">
 							<div className="flex-c-50">
-								<h3 class="header-text">Hello, welcome back {this.props.user.username}</h3>
+								<h3 className="header-text">Hello, welcome back {this.props.user.username}</h3>
 								<p>Your registered players:</p>
 								{playerCardData}
 							</div>

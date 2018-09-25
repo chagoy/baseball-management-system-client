@@ -21,8 +21,8 @@ export const Select = props => {
 				</select>
 			</div>
 		)
-		return <div></div>
 	}
+	return <div></div>
 }
 
 export default Select;
