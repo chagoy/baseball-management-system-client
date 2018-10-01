@@ -1,10 +1,11 @@
-import { SET_AUTH_TOKEN, CLEAR_AUTH, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR } from '../actions/auth';
+import { SET_AUTH_TOKEN, CLEAR_AUTH, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, PASSWORD_CHANGE_REQUEST, PASSWORD_CHANGE_ERROR } from '../actions/auth';
 
 const initialState = { 
 	authToken: null,
 	currentUser: null,
 	loading: false,
-	error: null
+	error: '',
+	validToken: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -31,6 +32,15 @@ export default function reducer(state = initialState, action) {
 		return Object.assign({}, state, {
 			loading: false,
 			error: action.error
+		});
+	} else if (action.type === PASSWORD_CHANGE_REQUEST) {
+		return Object.assign({}, state, {
+			validToken: action.response.reset
+		});
+	} else if (action.type === PASSWORD_CHANGE_ERROR) {
+		console.log(action.response.error)
+		return Object.assign({}, state, {
+			error: action.response.error
 		});
 	}
 	return state;

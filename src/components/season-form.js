@@ -4,6 +4,7 @@ import Input from './input';
 import Select from './select';
 import { createSeason } from '../actions/seasons';
 import { Redirect } from 'react-router-dom';
+import { required } from '../validators';
 
 export class SeasonForm extends React.Component {
 	onSubmit(values) {
@@ -18,11 +19,15 @@ export class SeasonForm extends React.Component {
 				<Field component={Input}
 						inputClass='team-input'
 						type='text'
+						validators={[required]}
+						warn={[required]}
 						name='season'/>
 				<label htmlFor='year'>Year</label>
 				<Field component={Input}
 						inputClass='team-input'
 						type='integer'
+						validators={[required]}
+						warn={[required]}
 						name='year' />
 
 				<button type='submit' className='team-button' disabled={this.props.pristine || this.props.submitting}>Submit</button>

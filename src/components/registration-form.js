@@ -10,7 +10,6 @@ const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 const userNameLength = length({min: 4, max: 16});
 
-
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
 		const {reset} = this.props;

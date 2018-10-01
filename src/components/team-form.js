@@ -2,8 +2,9 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import Select from './select';
-import {createTeam} from '../actions/teams';
-import {Redirect} from 'react-router-dom';
+import { createTeam } from '../actions/teams';
+import { Redirect } from 'react-router-dom';
+import { required } from '../validators';
 
 export class TeamForm extends React.Component {
 	onSubmit(values) {
@@ -17,12 +18,16 @@ export class TeamForm extends React.Component {
 				<label htmlFor="name">Team Name</label>
 				<Field component={Input} 
 							inputClass='team-input'
-							type="text" 
+							type="text"
+							validators={[required]}
+							warn={[required]}
 							name="name" />
 				<label htmlFor="division">Division</label>
 				<Field component={Select} 
 							selectInput='team-select'
-							name="division" 
+							name="division"
+							validators={[required]}
+							warn={[required]}
 							options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
 				<button type="submit" className="team-button" disabled={this.props.pristine || this.props.submitting}>Submit</button>
 			</form>

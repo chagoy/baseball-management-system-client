@@ -47,7 +47,7 @@ export class LoginForm extends React.Component {
 					warn={[required, nonEmpty, isTrimmed]}
 				/>
 				<button className="login-button" disabled={this.props.pristine || this.props.submitting}>Log in</button>
-				<p className="message">Or create a <Link to="/register">new account</Link></p>
+				<p className="message"><Link to='/reset'>Forgot yoru password?</Link> Or create a <Link to="/register">new account</Link></p>
 			</form>
 		)
 	}

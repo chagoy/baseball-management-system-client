@@ -14,6 +14,34 @@ export const fetchGamesError = error => ({
 	error
 });
 
+export const SELECTED_GAME_SUCCESS = 'SELECTED_GAME_SUCCESS';
+export const selectedGameSuccess = game => ({
+	type: SELECTED_GAME_SUCCESS,
+	game
+});
+
+export const getGame = id => (dispatch, getState) => {
+	return fetch(`${API_BASE_URL}/api/games/${id}`, {
+		method: 'GET',
+		headers: {
+			'content-type': 'application/json'
+		}
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(selectedGameSuccess(data)))
+	.catch(err => {
+		const {reason, message, location} = err;
+		if (reason === 'ValidationError') {
+			return Promise.reject(
+				new SubmissionError({
+					[location]: message
+				})
+			)
+		}
+	})
+}
+
 export const createGame = game => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 

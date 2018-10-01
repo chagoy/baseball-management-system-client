@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement, injectStripe} from 'react-stripe-elements';
+import {CardElement, PostalCodeElement, injectStripe} from 'react-stripe-elements';
 import PAYMENT_SERVER_URL from '../server';
 import {registerPlayer} from '../actions/players';
 import {Redirect} from 'react-router-dom';
@@ -16,8 +16,6 @@ class InjectedCheckoutForm extends React.Component {
 
 	async submit(ev) {
 		let {token} = await this.props.stripe.createToken({name: 'Name'});
-
-		console.log(this.state.name);
 
 		let response = await fetch(`${PAYMENT_SERVER_URL}/api/stripe`, {
 			method: 'post',

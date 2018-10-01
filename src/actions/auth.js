@@ -33,6 +33,19 @@ export const authError = error => ({
 	error
 });
 
+export const PASSWORD_CHANGE_REQUEST = 'PASSWORD_CHANGE_REQUEST';
+export const passwordChangeRequest = (response) => ({
+	type: PASSWORD_CHANGE_REQUEST,
+	response
+});
+
+export const PASSWORD_CHANGE_ERROR = 'PASSWORD_CHANGE_ERROR';
+export const passwordChangeError = (response) => ({
+	type: PASSWORD_CHANGE_ERROR,
+	response
+});
+
+
 const storeAuthInfo = (authToken, dispatch) => {
 	const decodedToken = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
@@ -91,3 +104,47 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 		clearAuthToken(authToken);
 	});
 };
+
+export const resetPassword = (email) => (dispatch, getState) => {
+	// dispatch(resetPasswordRequest());
+	return fetch(`${API_BASE_URL}/auth/reset`, {
+		method: 'POST',
+		headers: {
+				'Content-Type': 'application/json'
+			},
+		body: JSON.stringify(email)
+	}) 
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => console.log(data))
+	.catch(err => console.error(err))
+}
+
+export const checkValidToken = (hash) => (dispatch, getState) => {
+	console.log('supposed to check')
+	return fetch(`${API_BASE_URL}/auth/reset/${hash}`, {
+		method: 'GET',
+		headers: {
+			'content-type': 'application/json'
+		}
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(passwordChangeRequest(data)))
+	.catch(err => dispatch(passwordChangeError(err)))
+}
+
+export const saveNewPassword = (data) => (dispatch, getState) => {
+	console.log(data)
+	return fetch(`${API_BASE_URL}/auth/reset/${data.hash}`, {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => console.log(data))
+	.catch(err => console.error(err))
+}

@@ -6,7 +6,7 @@ import Select from './select';
 import File from './file-input';
 import {registerPlayer} from '../actions/players';
 import Contract from './contract';
-import {required, nonEmpty, length, isTrimmed, maxValue, number} from '../validators';
+import {required, nonEmpty, length, isTrimmed, maxValue, number, matches} from '../validators';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import InjectedCheckoutForm from './checkout';
 const monthMax = maxValue(12);
@@ -29,7 +29,6 @@ export class PlayerForm extends React.Component {
   }
 
 	onSubmit(values) {
-		console.log(values);
 		return this.props.dispatch(registerPlayer(values));
 	}
 
@@ -115,8 +114,8 @@ export class PlayerForm extends React.Component {
 								inputClass='player-input' 
 								type="text" 
 								name="waiver" 
-								validators={[required, isTrimmed, nonEmpty]}
-								warn={[required, isTrimmed, nonEmpty]}
+								validators={[required, isTrimmed, nonEmpty, ]}
+								warn={[required, isTrimmed, nonEmpty, ]}
 						/> 
 						<div className="checkout-form">
 							<InjectedCheckoutForm />

@@ -8,12 +8,16 @@ import LoginPage from './components/login-page';
 import RegisterPage from './components/register-page';
 import RegisterPlayer from './components/register-player';
 import Player from './components/player';
+import PassResetPage from './components/pass-reset-page';
 import AdminCreate from './components/admin-create';
 import Navbar from './components/navbar';
 import Team from './components/team';
 import Footer from './components/footer';
 import AdminPage from './components/admin-page';
+import ResetPage from './components/reset-page';
+import GamePage from './components/game-page';
 import CustomNavbar from './components/custom-navbar';
+
 export class App extends Component {
 
   render() {
@@ -29,8 +33,11 @@ export class App extends Component {
           <Route exact path="/login" component={LoginPage} />
           <Route path="/players/:id" component={Player} />
           <Route path="/team/:id" component={Team} />
+          <Route path='/game/:id' component={GamePage} />
           <Route path="/create" component={AdminCreate} />
           <Route path="/admin" component={AdminPage} />
+          <Route exact path='/reset' component={ResetPage} />
+          <Route path='/reset/:hash' component={PassResetPage} />
         </div>
         {/*<Footer/>*/}
       </div>
