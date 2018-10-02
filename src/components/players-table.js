@@ -22,7 +22,7 @@ export class PlayersTable extends React.Component {
 		const players = this.props.players.map(player => 
 			<tr>
 				<td>{player.sport}</td>
-				<td><Link to={`/players/${player.id}`}>{player.fullName}</Link></td>
+				<td><Link to={`/player/${player.id}`}>{player.fullName}</Link></td>
 				<td>{player.month}/{player.day}/{player.year}</td>
 				<td>{player.playingAge}</td>
 				<td>{player.team ? player.team.division : player.division}</td>

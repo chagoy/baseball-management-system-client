@@ -12,8 +12,8 @@ export default function GameElement(props) {
 					{props.game.location}
 				</span>
 			</div>
-			<p className="team-line">{props.game.away.name}</p>
-			<p className="team-line">{props.game.home.name}</p>
+			<p className="team-line">{props.game.away.name} <span class="record">({props.game.away.record})</span></p>
+			<p className="team-line">{props.game.home.name} <span class="record">({props.game.home.record})</span></p>
 			<span className="division">{props.game.away.division}</span>
 		</li>
 	)

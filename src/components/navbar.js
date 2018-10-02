@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import LogoutForm from './logout';
 import {logout} from '../actions/auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 require('./navbar.css');
 
 class Navbar extends React.Component {
@@ -14,28 +16,30 @@ class Navbar extends React.Component {
 	generateLinks() {
 		if (this.props.loggedIn !== true) {
 			return ( 
-			<div className="right-side">
-				<Link className="link right-side-link" to={'/register'}>Play</Link>
-				<Link className="link right-side-link" to={'/register'}>Events</Link>
-				<Link className="link right-side-link" to={'/register'}>Get Involved</Link>
-				<Link className="link right-side-link" to={'/register'}>Our League</Link>
-				<Link className="link right-side-link" to={'/login'}>Login</Link>
-			</div>
+				<div>
+					<Link to={'/register'}>Play</Link>
+					<Link to={'/register'}>Events</Link>
+					<Link to={'/register'}>Get Involved</Link>
+					<Link to={'/league'}>Our League</Link>
+					<Link to={'/login'}>Login</Link>
+				</div>
 			)
 		} else {
 			return (
-				<div className="right-side">
-					<Link className="link right-side-link" to={'/register-player'}>Register</Link>
-					<Link className="link right-side-link" to={'/register'}>My Team</Link>
-					<Link className="link right-side-link" to={'/register'}>Schedule</Link>
-					<Link className="link right-side-link" to={'/register'}>Standings</Link>
-					<Link className="link right-side-link" to={'/register'}>League</Link>
-					<Link className="link right-side-link" to={'/register'}>My Account</Link>
-					<Link className="link right-side-link" to="/" onClick={e => this.handleClick(e)}>Logout</Link>
+				<div>
+					<Link to={'/dashboard'}>Home</Link>
+					<Link to={'/register-player'}>Register</Link>
+					<Link to={'/league'}>League</Link>
+					<Link to="/" onClick={e => this.handleClick(e)}>Logout</Link>
 					{/*<LogoutForm/>*/}
 				</div>
 				)
 		}
+	}
+
+	toggle() {
+		let narrowLinks = document.querySelector('.narrowLinks');
+		narrowLinks.classList.toggle('hidden');
 	}
 
 	render() {
@@ -44,10 +48,18 @@ class Navbar extends React.Component {
 		const links = this.generateLinks();
 		
 		return (
-			<nav className="navbar">
-				<div className="flex-row">
-					<Link className="link" to={brandLink}>Baseball</Link>
-           { links }
+			<nav>
+				<div className="navWide">
+					<div className="wideDiv">
+						{links}
+					</div>
+        </div>
+
+        <div className="navNarrow" onClick={this.toggle}>
+        	<FontAwesomeIcon icon={faBars} color='white' />
+        	<div className="narrowLinks hidden">
+        		{links}
+        	</div>
         </div>
 			</nav>
 		)

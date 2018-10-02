@@ -17,7 +17,7 @@ export class Player extends React.Component {
 		}
 
 		const parentInfo = this.props.player.user ? 
-		`${this.props.player.user.fullName} - ${this.props.player.user.phone} - ${this.props.player.user.email}`
+		`${this.props.player.user.firstName} ${this.props.player.user.lastName}  - ${this.props.player.user.phone} - ${this.props.player.user.email}`
 		: 'no parent saved';
 		return (
 			<div className="flex-row">

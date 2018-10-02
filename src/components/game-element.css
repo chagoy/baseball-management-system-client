@@ -32,7 +32,7 @@
 .team-line {
 	margin: 0 0;
 	text-transform: uppercase; 
-	margin: 4px 3px;
+	margin: 0 3px;
 	font-size: 1.2rem;
 }
 
@@ -40,6 +40,13 @@
 	font-size: 0.8rem;
 	color: #929eb2;
 	margin-left: 3px;
+}
+
+.record {
+	margin: 0 0;
+	font-size: 0.8rem;
+	vertical-align: middle;
+	color: #D90000;
 }
 
 @media (max-width: 696px) {
