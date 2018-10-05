@@ -26,8 +26,12 @@ export class TeamForm extends React.Component {
 			<form className="form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<label for="team">Change Team</label>
-				<Field component={Select} name="team" options={obj} />
-				<button type="submit">Change</button>
+				<Field placeholder={this.props.team} 
+							component={Select} 
+							selectInput='team-select' 
+							name="team" 
+							options={obj} />
+				<button className='team-button' type="submit">Change</button>
 			</form>
 		);
 	}

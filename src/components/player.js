@@ -5,10 +5,12 @@ import {fetchPlayer} from '../actions/players';
 import DivisionSelect from './division-select';
 import TeamSelect from './team-select';
 import {Link, Redirect} from 'react-router-dom';
+require('./player.css')
 
 export class Player extends React.Component {
 	componentWillMount() {
-		return this.props.dispatch(fetchPlayer(this.props.match.params.id))
+
+		return this.props.dispatch(fetchPlayer(this.props.match.params.id));
 	}
 
 	render() {
@@ -32,8 +34,12 @@ export class Player extends React.Component {
 					</div>
 				</div>
 				<div className="flex-c-50">
-					<DivisionSelect id={this.props.player.id} />
-					<TeamSelect id={this.props.player.id} />
+					<div className='edit-padding'>
+						<DivisionSelect id={this.props.player.id} />
+					</div>
+					<div className='edit-padding'>
+						<TeamSelect id={this.props.player.id} />
+					</div>
 				</div>
 			</div>
 		)

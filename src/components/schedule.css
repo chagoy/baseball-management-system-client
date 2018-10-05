@@ -1,0 +1,20 @@
+.schedule-list {
+	list-style: none;
+	padding: 0;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.schedule-title {
+
+}
+
+.schedule {
+	margin: 0 auto;
+}
+
+@media (max-width: 696px) {
+	.schedule-list {
+		width: 96%;
+	}
+}

@@ -3,11 +3,11 @@
 	flex-shrink: 0;
 }
 
-.react-datepicker-wrapper {
+/*.react-datepicker-wrapper {
 	border: 1px solid black;
 	width: 50%;
 	height: 80px;
-}
+}*/
 
 ul.react-datepicker__time-list {
 	padding: 0;
@@ -19,4 +19,8 @@ ul.react-datepicker__time-list {
 
 .date-input {
 	width: 100%
+}
+
+.react-datepicker-wrapper {
+	width: 100%;
 }

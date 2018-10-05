@@ -11,6 +11,7 @@ import Player from './components/player';
 import PassResetPage from './components/pass-reset-page';
 import AdminCreate from './components/admin-create';
 import Navbar from './components/navbar';
+import Schedule from './components/schedule';
 import Team from './components/team';
 import Footer from './components/footer';
 import AdminPage from './components/admin-page';
@@ -31,6 +32,7 @@ export class App extends Component {
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path='/league' component={LeaguePage} />
+          <Route exact path='/schedule' component={Schedule} />
           <Route exact path="/register-player" component={RegisterPlayer} />
           <Route exact path="/login" component={LoginPage} />
           <Route path="/player/:id" component={Player} />

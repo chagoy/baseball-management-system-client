@@ -18,7 +18,15 @@ export class Dashboard extends React.Component {
 			return <Redirect to="/" />;
 		};
 
-		let playerCardData = this.props.players ? this.props.players.map((player, index) => <Link key={index} to={`/player/${player.id}`}><PlayerCard key={index} player={player} /></Link>) : 'loading player cards';
+		let playerCardData = this.props.players ? this.props.players.map((player, index) => {
+			console.log(this.props.user.admin)
+			if (this.props.user.admin) {
+				return (
+					<Link key={index} to={`/player/${player.id}`}><PlayerCard key={index} player={player} /></Link>
+				)
+			}
+			return <PlayerCard key={index} player={player} />;
+		}) : 'no players to display';
 
 		let adminLinks = this.props.user.admin ? (
 			<div>

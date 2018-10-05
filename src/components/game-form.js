@@ -30,22 +30,25 @@ class GameForm extends React.Component {
 			<h3>Submit A Game</h3>
 				<label htmlFor="home">Home Team</label>
 				<Field component={Select} 
+							selectInput="team-select"
 							options={this.createTeamsObject(this.props.teams)}
 							name="home"
 				/>
 				<label htmlFor="away">Away Team</label>
 				<Field component={Select}
+							selectInput="team-select"
 							options={this.createTeamsObject(this.props.teams)}
 							name="away"
 				/>
 				<label htmlFor="location">Location</label>
 				<Field component={Select}
+							selectInput="team-select"
 							options={{'GRB': 'Garvey Ranch - Big', 'GRS': 'Garvey Ranch - Small'}}
 							name="location"
 				/>
 				<label htmlFor="time">Date & Time</label>
 				<Field component={renderDatePicker} name="time" />
-				<button type="submit">submit</button>
+				<button className="team-button" type="submit">submit</button>
 			</form>
 		)
 	}
