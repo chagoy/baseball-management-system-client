@@ -2,6 +2,8 @@
 
 This is the front-end repo for a simple, minimal baseball management website. The site allows users to sign up and register themselves as a player and pay for their registration. It also allows an administrator to keep track of who has played, determine ages, and more.
 
+To view the back-end, please go here: https://github.com/chagoy/payment-server
+
 ##Install
 
 Clone this repo and press `npm install`. 
