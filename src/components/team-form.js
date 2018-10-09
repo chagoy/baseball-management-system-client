@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import Input from './input';
 import Select from './select';
 import { createTeam } from '../actions/teams';
@@ -35,6 +35,9 @@ export class TeamForm extends React.Component {
 	}
 }
 
+const afterSubmit = (result, dispatch) => dispatch(reset('team'));
+
 export default reduxForm({
-	form: 'team'
+	form: 'team',
+	onSubmitSuccess: afterSubmit
 })(TeamForm);

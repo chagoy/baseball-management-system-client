@@ -2,8 +2,16 @@
 	/*padding: 18px 0;*/
 }
 
+.loginBackground {
+	background: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423329-unsplash.jpg');
+	background-size: cover;
+	background-position: center;
+	min-height: 100vh;
+}
+.login-form-container {
+	padding-top: 10%;
+}
 .login-form {
-	/*border: 3px solid white;*/
 	background-color: rgba(255, 255, 255, 0.7);
 	width: 80%;
 	text-align: center;

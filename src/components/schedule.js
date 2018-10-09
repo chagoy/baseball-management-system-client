@@ -13,7 +13,6 @@ export class Schedule extends React.Component {
 		let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement key={ index } game={ game }/>) : 'loading games';
 		return (
 			<div className="schedule">
-				<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg" alt="a picture of a base" className="backgroundImage ig-filter" />
 				<div className='flex-row'>
 					<h1 className="schedule-title">Fall 2018 Schedule</h1>
 				</div>

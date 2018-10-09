@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import Input from './input';
 import Select from './select';
 import { createSeason } from '../actions/seasons';
@@ -36,6 +36,9 @@ export class SeasonForm extends React.Component {
 	}
 }
 
+const afterSubmit = (result, dispatch) => dispatch(reset('season'))
+
 export default reduxForm({
-	form: 'season'
+	form: 'season',
+	onSubmitSuccess: afterSubmit
 })(SeasonForm)

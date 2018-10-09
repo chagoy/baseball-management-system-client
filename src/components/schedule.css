@@ -6,11 +6,17 @@
 }
 
 .schedule-title {
-
+    color: #eee;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 13px;
 }
 
 .schedule {
 	margin: 0 auto;
+	background: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg');
+	background-size: cover;
+	background-position: center;
 }
 
 @media (max-width: 696px) {

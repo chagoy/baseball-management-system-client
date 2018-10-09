@@ -18,36 +18,34 @@ export class Dashboard extends React.Component {
 			return <Redirect to="/" />;
 		};
 
-		let playerCardData = this.props.players ? this.props.players.map((player, index) => {
+		let playerCardData = this.props.players.length ? this.props.players.map((player, index) => {
 			console.log(this.props.user.admin)
 			if (this.props.user.admin) {
 				return (
-					<Link key={index} to={`/player/${player.id}`}><PlayerCard key={index} player={player} /></Link>
+					<Link key={index} to={`/player/${player.id}`}><PlayerCard key={index} player={player} admin={this.props.user.admin} /></Link>
 				)
 			}
 			return <PlayerCard key={index} player={player} />;
-		}) : 'no players to display';
+		}) : 'You have no registered players';
 
 		let adminLinks = this.props.user.admin ? (
-			<div>
+			<div className='admin-links'>
 				<Link to="/create" className="link">Admin Creation</Link>
 				<Link to="/admin" className="link">Table View</Link>
 			</div>
 		) : '';
 
 		return (
-			<div>
-				<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg" alt="a picture of a base" className="backgroundImage ig-filter" />
+			<div className='dashboard'>
 				{ adminLinks }
 				<main className="dashboard-screen">
 					<div className="flex-wrap">
 						<div className="flex-row">
 							<div className="flex-c-50">
-								<h3 className="header-text">Hello, welcome back {this.props.user.username}</h3>
-								<p>Your registered players:</p>
+								<h3 className='header-text'>Your Registered Players</h3>
 								{playerCardData}
 							</div>
-							<div className="flex-c-50">
+							<div className="flex-c-50 games-column">
 								<h3 className="header-text">Your Upcoming Schedule</h3>
 								<GamesList />
 							</div>

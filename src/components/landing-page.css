@@ -1,3 +1,11 @@
+.background {
+	background-image: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423333-unsplash.jpg');
+	background-size: cover;
+	min-height: 100vh;
+	background-position: center;
+	overflow: hidden;
+}
+
 .header {
 	padding-top: 100px;
 	margin: 0 auto;
@@ -39,4 +47,10 @@
 
 .register-button a:hover {
 	color: #dcdcdc;
+}
+
+@media (max-width: 640px) {
+	.header {
+		padding-top: 20px;
+	}
 }

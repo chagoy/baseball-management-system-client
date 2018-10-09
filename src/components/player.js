@@ -29,8 +29,7 @@ export class Player extends React.Component {
 					<p>Playing Age: <span className="player-text-span">{this.props.player.playingAge}</span></p>
 					<p>Team: <strong>{this.props.team ? `${this.props.team.name} - ${this.props.team.division}` : 'no team'}</strong></p>
 					<div>
-						<h4>parent information</h4>
-						<p>{parentInfo}</p>
+						{ parentInfo ? <div><h4>Parent Information</h4><p>{parentInfo}</p></div> : 'No parent associated with this player!' }
 					</div>
 				</div>
 				<div className="flex-c-50">

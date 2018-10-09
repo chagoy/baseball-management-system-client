@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import Input from './input';
 import Select from './select';
 import { createGame } from '../actions/games';
@@ -58,8 +58,11 @@ const mapStateToProps = state => ({
 	teams: state.team.teams
 })
 
+const afterSubmit = (result, dispatch) => dispatch(reset('game'))
+
 GameForm = reduxForm({
-	form: 'game'
+	form: 'game',
+	onSubmitSuccess: afterSubmit
 })(GameForm);
 
 export default connect(mapStateToProps)(GameForm)

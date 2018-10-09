@@ -12,7 +12,6 @@ export function RegisterPlayer(props) {
 
 	return (
 		<div>
-			<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>
 			<main className="home">
 				<PlayerForm />
 			</main>

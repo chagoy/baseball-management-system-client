@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import Radio from './radio';
 import Input from './input';
 import Select from './select';
@@ -128,7 +128,10 @@ export class PlayerForm extends React.Component {
 	}
 }
 
+const afterSubmit = (result, dispatch) => dispatch(reset('player'));
+
 export default reduxForm({
 	form: 'player',
+	onSubmitSuccess: afterSubmit
 	// onSubmitFail: (errors, dispatch) => dispatch(focus('player', Object.keys(errors)[0]))
 })(PlayerForm)
