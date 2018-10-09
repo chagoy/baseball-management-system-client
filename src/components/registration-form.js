@@ -107,7 +107,7 @@ export class RegistrationForm extends React.Component {
 						validators={[required, isTrimmed, nonEmpty, passwordLength]}
 						warn={[required, isTrimmed, nonEmpty, passwordLength]}
 				/>
-				<label htmlFor="passwordConfirm">Confirm password</label>
+				<label htmlFor="passwordConfirm">Confirm Password</label>
 				<Field component={Input} 
 						inputClass="register-input"
 						type="password" 

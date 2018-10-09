@@ -5,6 +5,7 @@ import TeamForm from './team-form';
 import SeasonForm from './season-form';
 import GameForm from './game-form';
 import { getAllTeams } from '../actions/teams';
+import Loading from './loading';
 require('./admin-create.css')
 
 class AdminCreate extends React.Component {
@@ -17,7 +18,7 @@ class AdminCreate extends React.Component {
 	}	
 
 	render() {
-		let gameForm = this.props.teams.length > 0 ? <GameForm /> : 'Waiting for teams...';
+		let gameForm = this.props.teams.length > 0 ? <GameForm /> : <Loading message='Waiting for teams...'/>;
 		return (
 			<div className="create">
 				<TeamForm />

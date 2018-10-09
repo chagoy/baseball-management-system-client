@@ -13,8 +13,9 @@ export function RegisterPage(props) {
 	return (
 		<div className="home registerBackground">
 {/*			<img src="https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423336-unsplash.jpg" alt="a child running to first base" className="backgroundImage ig-filter"/>*/}
-				
-				<RegistrationForm />
+				<div className='registration-form-container'>
+					<RegistrationForm />
+				</div>
 		</div>
 	);
 }
