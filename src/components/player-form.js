@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm, focus, reset } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import Radio from './radio';
 import Input from './input';
 import Select from './select';
