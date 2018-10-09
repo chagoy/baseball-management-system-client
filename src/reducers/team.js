@@ -26,7 +26,6 @@ export default function reducer(state = initialState, action) {
 			loading: true
 		})
 	} else if (action.type === FETCH_ALL_TEAMS_SUCCESS) {
-		console.log('inside the reducer')
 		return Object.assign({}, state, {
 			teams: action.teams,
 			loading: false

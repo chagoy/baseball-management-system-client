@@ -1,5 +1,11 @@
+.loading {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
 .loading .bullet {
-    position: inherit;
+    position: absolute;
     padding: 5px;
     border-radius: 50%;
     background: #65a3ff;

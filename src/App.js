@@ -36,8 +36,8 @@ export class App extends Component {
           <Route exact path="/register-player" component={RegisterPlayer} />
           <Route exact path="/login" component={LoginPage} />
           <Route path="/player/:id" component={Player} />
-          <Route path="/team/:id" component={Team} />
-          <Route path='/game/:id' component={GamePage} />
+          {/*<Route path="/team/:id" component={Team} />*/}
+          {/*<Route path='/game/:id' component={GamePage} />*/}
           <Route path="/create" component={AdminCreate} />
           <Route path="/admin" component={AdminPage} />
           <Route exact path='/reset' component={ResetPage} />

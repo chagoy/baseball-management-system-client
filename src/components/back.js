@@ -1,11 +1,9 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {Dashboard} from "./dashboard";
-import {connect} from "react-redux";
+import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 export class Back extends React.Component {
 	render() {
-		console.log(withRouter);
 		return (
             <Link to="/">Back</Link>
 		);

@@ -38,7 +38,6 @@ export default function reducer(state = initialState, action) {
 			validToken: action.response.reset
 		});
 	} else if (action.type === PASSWORD_CHANGE_ERROR) {
-		console.log(action.response.error)
 		return Object.assign({}, state, {
 			error: action.response.error
 		});

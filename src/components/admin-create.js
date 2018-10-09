@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TeamForm from './team-form';
 import SeasonForm from './season-form';
 import GameForm from './game-form';
@@ -18,7 +18,7 @@ class AdminCreate extends React.Component {
 	}	
 
 	render() {
-		let gameForm = this.props.teams.length > 0 ? <GameForm /> : <Loading message='Waiting for teams...'/>;
+		let gameForm = this.props.teams.length > 0 ? <GameForm /> : <Loading />;
 		return (
 			<div className="create">
 				<TeamForm />

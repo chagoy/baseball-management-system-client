@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PayConfirm from './pay-confirm';
 import {fetchPlayer} from '../actions/players';
 import DivisionSelect from './division-select';
 import TeamSelect from './team-select';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 require('./player.css')
 
 export class Player extends React.Component {
@@ -15,7 +14,7 @@ export class Player extends React.Component {
 
 	render() {
 		if (!this.props.loggedIn) {
-			return <div>You are not authorized to view this page</div>;
+			return <Redirect to='/' />;
 		}
 
 		const parentInfo = this.props.player.user ? 

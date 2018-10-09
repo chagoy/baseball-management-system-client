@@ -3,12 +3,13 @@ require('./loading.css');
 
 export default function Loading(props) {
 	return (
-		<div class='loading'>
-		  <div class='bullet'></div>
-		  <div class='bullet'></div>
-		  <div class='bullet'></div>
-		  <div class='bullet'></div>
-		  <p>{props.message}</p>
-		</div>
+		<div className='loading-container'>
+			<div className='loading'>
+			  <div className='bullet'></div>
+			  <div className='bullet'></div>
+			  <div className='bullet'></div>
+			  <div className='bullet'></div>
+			</div>
+	  </div>
 	)
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
-import moment from 'moment';
 import PayConfirm from './pay-confirm';
 import {Link} from 'react-router-dom';
 import './players-table.css'
@@ -12,13 +11,6 @@ export class PlayersTable extends React.Component {
 	}
 
 	render() {
-		const playingAge = (month, day, year) => {
-			let currentAge = moment([year, month - 1, day]);
-			let cutoff = moment([2018, 7, 31]);
-			let playingAge = cutoff.diff(currentAge, 'years', true);
-			return playingAge.toFixed(3);
-		};
-
 		const players = this.props.players.map(player => 
 			<tr>
 				<td>{player.sport}</td>

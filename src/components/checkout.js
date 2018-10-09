@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement, PostalCodeElement, injectStripe} from 'react-stripe-elements';
+import {CardElement, injectStripe} from 'react-stripe-elements';
 import PAYMENT_SERVER_URL from '../server';
 import {registerPlayer} from '../actions/players';
 import {Redirect} from 'react-router-dom';

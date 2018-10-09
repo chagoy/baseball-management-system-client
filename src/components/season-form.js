@@ -1,9 +1,7 @@
 import React from 'react';
-import { Field, reduxForm, focus, reset } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import Input from './input';
-import Select from './select';
 import { createSeason } from '../actions/seasons';
-import { Redirect } from 'react-router-dom';
 import { required } from '../validators';
 
 export class SeasonForm extends React.Component {

@@ -17,6 +17,7 @@
 	background: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg');
 	background-size: cover;
 	background-position: center;
+	min-height: 100vh;
 }
 
 @media (max-width: 696px) {

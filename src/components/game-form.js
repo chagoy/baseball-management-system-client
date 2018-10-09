@@ -1,12 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Field, reduxForm, focus, reset } from 'redux-form';
-import Input from './input';
+import { Field, reduxForm, reset } from 'redux-form';
 import Select from './select';
 import { createGame } from '../actions/games';
-import { Redirect } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import renderDatePicker from "./render-datepicker";
 require('./game-form.css');
@@ -48,7 +45,7 @@ class GameForm extends React.Component {
 				/>
 				<label htmlFor="time">Date & Time</label>
 				<Field component={renderDatePicker} name="time" />
-				<button className="team-button" type="submit">submit</button>
+				<button className="team-button" type="submit" disabled={this.props.pristine || this.props.submitting}>submit</button>
 			</form>
 		)
 	}

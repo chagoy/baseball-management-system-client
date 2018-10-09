@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import LogoutForm from './logout';
 import {logout} from '../actions/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -32,7 +31,6 @@ class Navbar extends React.Component {
 					<Link to={'/schedule'}>Schedule</Link>
 					<Link to={'/league'}>League</Link>
 					<Link to="/" onClick={e => this.handleClick(e)}>Logout</Link>
-					{/*<LogoutForm/>*/}
 				</div>
 				)
 		}
@@ -44,8 +42,6 @@ class Navbar extends React.Component {
 	}
 
 	render() {
-		const brandLink = this.props.user.length > 0 ? '/dashboard' : '/';
-		
 		const links = this.generateLinks();
 		
 		return (

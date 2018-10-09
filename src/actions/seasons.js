@@ -3,8 +3,6 @@ import {normalizeResponseErrors} from './utils';
 import {SubmissionError} from 'redux-form';
 
 export const createSeason = (season) => (dispatch, getState) => {
-	console.log(season);
-
 	const authToken = getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/api/seasons`, {

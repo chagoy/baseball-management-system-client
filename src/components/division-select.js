@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import Select from './select';
 import { updateDivision } from '../actions/players';
 

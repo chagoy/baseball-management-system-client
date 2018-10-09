@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import LogoutForm from './logout';
-import Back from './back';
 import GamesList from './games-list';
 import { fetchProtectedData } from '../actions/protected-data';
 import PlayerCard from './player-card';
@@ -19,7 +17,6 @@ export class Dashboard extends React.Component {
 		};
 
 		let playerCardData = this.props.players.length ? this.props.players.map((player, index) => {
-			console.log(this.props.user.admin)
 			if (this.props.user.admin) {
 				return (
 					<Link key={index} to={`/player/${player.id}`}><PlayerCard key={index} player={player} admin={this.props.user.admin} /></Link>

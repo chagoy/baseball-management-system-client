@@ -1,9 +1,8 @@
 import React from 'react';
-import { Field, reduxForm, focus, reset } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import Input from './input';
 import Select from './select';
 import { createTeam } from '../actions/teams';
-import { Redirect } from 'react-router-dom';
 import { required } from '../validators';
 
 export class TeamForm extends React.Component {

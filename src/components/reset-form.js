@@ -1,8 +1,7 @@
 import React from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import Input from './input';
 import { resetPassword } from '../actions/auth'
-import { Redirect } from 'react-router-dom';
 
 export class ResetForm extends React.Component {
 	onSubmit(values) {

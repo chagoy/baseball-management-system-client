@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
-import ResetForm from './reset-form';
+import { Redirect } from 'react-router-dom';
 import PasswordForm from './password-form';
 import {checkValidToken} from '../actions/auth';
 

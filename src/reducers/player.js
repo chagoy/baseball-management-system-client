@@ -7,7 +7,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
 	if (action.type === FETCH_PLAYER_SUCCESS) {
-		console.log(action.player)
 		return Object.assign({}, state, {
 			player: action.player,
 		});
