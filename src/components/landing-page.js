@@ -12,7 +12,7 @@ export function LandingPage(props) {
 		<div className="background">
 			<div className="flex-row">
 				<header className="header">
-					<h1 className="headline-text">Baseball & Softball</h1>
+					<h1 className="headline-text">Youth Baseball & Softball</h1>
 					<p className="tagline">now accepting registrations for the spring 2019 season</p>
 					<Link to={'/register'}>
 						<button className="register-button">

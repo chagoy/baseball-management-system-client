@@ -1,6 +1,6 @@
 # Baseball Management
 
-This is the front-end repo for a simple, minimal baseball management website. The site allows users to sign up and register themselves as a player and pay for their registration. It also allows an administrator to keep track of who has played, determine ages, and more.
+This is the front-end repo for a simple, minimal youth baseball management website. The site allows users to sign up and register themselves as a player and pay for their registration. It also allows an administrator to keep track of who has played, determine ages, contact parents, and more.
 
 Live demo is [here](https://baseball-management-system.herokuapp.com/)
 
@@ -40,4 +40,3 @@ This app uses stripe to handle payment processing. Right now the implementation 
 * More store like appearance during registration
 * Ability for user to toggle the amount of times to be charged (say they register 2 players)
 * Admin view uploaded birth certificates on the front end, right now they appear on the Amazon server)
-* More style all over!
