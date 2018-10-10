@@ -31,7 +31,7 @@ export class App extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path='/league' component={LeaguePage} />
+          {/*<Route exact path='/league' component={LeaguePage} />*/}
           <Route exact path='/schedule' component={Schedule} />
           <Route exact path="/register-player" component={RegisterPlayer} />
           <Route exact path="/login" component={LoginPage} />
