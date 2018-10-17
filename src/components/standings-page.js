@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStandings } from '../actions/teams';
 import StandingsRow from './standings-row';
+require('./standings.css');
 
 export class StandingsPage extends React.Component {
 	componentDidMount() {
@@ -22,29 +23,38 @@ export class StandingsPage extends React.Component {
 			this.props.standings.bronco.map((team, index) => <StandingsRow key={index} team={team} /> )
 		: 'loading';
 		return (
-			<div>
+			<div className='standings-container'>
+				<h2>Standings</h2>
 				<table>
-					<tr>
-						<th>Name</th>
+					<tr className='header-row'>
+						<th>Team</th>
 						<th>Wins</th>
 						<th>Losses</th>
 						<th>Draws</th>
 						<th>Games Back</th>
 					</tr>
-					<tr colspan='5'>
-						Shetland Division
+					<tr>
+						<td colspan='5'>
+							Shetland
+						</td>
 					</tr>
 					{shetland}
-					<tr colspan='5'>
-						Pinto Division
+					<tr>
+						<td colspan='5'>
+							Pinto
+						</td>
 					</tr>
 					{pinto}
-					<tr colspan='5'>
-						Mustang Division
+					<tr>
+						<td colspan='5'>
+							Mustang
+						</td>
 					</tr>
 					{mustang}
-					<tr colspan='5'>
-						Bronco Division
+					<tr>
+						<td colspan='5'>
+							Bronco
+						</td>
 					</tr>
 					{bronco}
 				</table>
