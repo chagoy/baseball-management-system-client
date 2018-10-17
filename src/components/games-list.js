@@ -18,7 +18,7 @@ export class GamesList extends React.Component {
 	render() {
 		
 		// let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <Link onClick={e => this.handleClick({game})} key={index} to={`/game/${game.id}`}><GameElement key={ index } game={ game }/></Link>) : 'Loading games...';
-        let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement key={ index } game={ game }/>) : <Loading />;
+    let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : <Loading />;
 
 		return (
 			<ul className="games-list">
@@ -29,6 +29,7 @@ export class GamesList extends React.Component {
 }
 
 const mapStateToProps = state => ({
+	admin: state.auth.currentUser.admin,
 	games: state.game.games
 });
 

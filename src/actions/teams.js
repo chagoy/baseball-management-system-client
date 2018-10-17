@@ -32,6 +32,18 @@ export const FETCH_ALL_TEAMS_LOADING = 'FETCH_ALL_TEAMS_LOADING';
 export const fetchAllTeamsLoading = loading => ({
 	type: FETCH_ALL_TEAMS_LOADING,
 	loading
+});
+
+export const FETCH_STANDINGS_SUCCESS = 'FETCH_STANDINGS_SUCCESS';
+export const fetchStandingsSuccess = standings => ({
+	type: FETCH_STANDINGS_SUCCESS,
+	standings
+});
+
+export const FETCH_STANDINGS_ERROR = 'FETCH_STANDINGS_ERROR';
+export const fetchStandingsError = error => ({
+	type: FETCH_STANDINGS_ERROR,
+	error
 })
 
 export const createTeam = team => (dispatch, getState) => {
@@ -74,5 +86,20 @@ export const getAllTeams = () => (dispatch, getState) => {
 	.then(data => dispatch(fetchAllTeamsSuccess(data)))
 	.catch(err => {
 		dispatch(fetchAllTeamsError(err));
+	})
+}
+
+export const fetchStandings = () => (dispatch, getState) => {
+	return fetch(`${API_BASE_URL}/api/teams/standings`, {
+		method: 'GET',
+		headers: {
+			'content-type': 'application/json'
+		}
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(fetchStandingsSuccess(data)))
+	.catch(err => {
+		dispatch(fetchStandingsError(err));
 	})
 }

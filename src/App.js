@@ -19,6 +19,7 @@ import ResetPage from './components/reset-page';
 import LeaguePage from './components/league-page';
 import GamePage from './components/game-page';
 import CustomNavbar from './components/custom-navbar';
+import StandingsPage from './components/standings-page';
 
 export class App extends Component {
 
@@ -38,6 +39,7 @@ export class App extends Component {
           <Route path="/player/:id" component={Player} />
           {/*<Route path="/team/:id" component={Team} />*/}
           {/*<Route path='/game/:id' component={GamePage} />*/}
+          <Route exact path='/standings' component={StandingsPage} />
           <Route path="/create" component={AdminCreate} />
           <Route path="/admin" component={AdminPage} />
           <Route exact path='/reset' component={ResetPage} />
