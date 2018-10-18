@@ -30,6 +30,7 @@ class InjectedCheckoutForm extends React.Component {
 
 	render() {
 		if (this.state.complete) return <Redirect to ='dashboard' />;
+		
 		return (
 			<div className='checkout'>
 				<CardElement />

@@ -54,9 +54,19 @@ td {
 .team-name {
 	text-align: left;
 	background-color: #f7f7f7;
-	text-transform: uppercase;
+	display: flex;
 }
 
 th {
 	padding: 5px 10px;
+}
+
+.standings-logo {
+	max-height: 30px;
+	padding-right: 4px;
+}
+
+.name-span {
+	display: flex;
+	align-items: center;
 }

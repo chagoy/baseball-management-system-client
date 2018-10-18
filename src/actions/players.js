@@ -57,7 +57,7 @@ export const fetchAllPlayers = () => (dispatch, getState) => {
 
 export const updateTeam = (id, team) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	console.log(team.team)
+	
 	return fetch(`${API_BASE_URL}/api/players/${id}/team`, {
 		method: 'PUT', 
 		headers: {
@@ -128,17 +128,24 @@ export const fetchPlayer = (playerId) => (dispatch, getState) => {
 }
 
 export const registerPlayer = player => (dispatch, getState) => {
-	console.log(player);
+	
 	//need to get something from square plus add in a transactions table to keep track of who pays
 	const authToken = getState().auth.authToken;
+
+	let formData = new FormData();
+
+	for (let key in player) {
+		formData.append(key, player[key])
+	}
+
+	formData.append('certificate', player.certificate[0]);
 
 	return fetch(`${API_BASE_URL}/api/players`, {
 		method: 'POST', 
 		headers: {
-			'content-type': 'application/json',
 			'Authorization': `Bearer ${authToken}`
 		},
-		body: JSON.stringify(player)
+		body: formData
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())

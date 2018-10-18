@@ -1,15 +1,24 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
 
-const handleChange = (handler) => ({target: {files}}) => handler(files.length ? {file: files[0], name: files[0].name} : {});
+const FILE_FIELD_NAME = 'files';
 
-export default ({
-	input: {onChange, onBlur, value: omitValue, ...inputProps},
-	meta: omitMeta, 
-	...props
-}) => (
-	<input type="file"
-			onChange={handleChange(onChange)} 
-			className={props.fileClass}
-			onBlur={handleChange(onBlur)}
-			{...inputProps} {...props} />
-);
+export default function File(props) {
+	const files = props.input.value;
+	return (
+		<div>
+			<Dropzone
+				name={props.name}
+				onDrop={( filesToUpload, e ) => props.input.onChange(filesToUpload)}
+			>
+				<div>try dropping some files here or select to upload</div>
+			</Dropzone>
+			{props.meta.touched && props.meta.error && <span className='error'>{props.meta.error}</span>}
+			{files && Array.isArray(files) && (
+				<ul>
+					{ files.map((file, i) => <li key={i}>{file.name}</li>) }
+				</ul>
+				)}
+			</div>
+	)
+}

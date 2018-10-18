@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
 import Input from './input';
+import File from './file-input';
 import Select from './select';
 import { createTeam } from '../actions/teams';
 import { required } from '../validators';
@@ -28,6 +29,11 @@ export class TeamForm extends React.Component {
 							validators={[required]}
 							warn={[required]}
 							options={{shetland: 'Shetland 6U', pinto: 'Pinto 8U', mustang: 'Mustang 10U', bronco: 'Bronco 12U', pony: 'Pony 14u'}} />
+				<label className="label-control" htmlFor="Logo">Team Logo</label>
+						<Field name="logo"
+								component={File}
+								fileClass="file-upload"
+						/>
 				<button type="submit" className="team-button" disabled={this.props.pristine || this.props.submitting}>Submit</button>
 			</form>
 		);

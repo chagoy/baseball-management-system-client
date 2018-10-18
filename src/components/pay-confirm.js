@@ -9,7 +9,7 @@ export class PayConfirm extends React.Component {
 		let paid = document.getElementById(this.props.id);
 		paid.value = paid.value === 'true' ? paid.innerText = 'false' : paid.innerText = 'true';
 	}
-	render() {
+	render() { 
 		let paid = this.props.paid ? 'true' : 'false';
 		return (
 			<span className={paid} id={this.props.id} onClick={e => this.handleClick(e)}>

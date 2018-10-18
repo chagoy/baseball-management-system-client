@@ -37,6 +37,7 @@ export class PlayerForm extends React.Component {
 			<StripeProvider stripe={this.state.stripe}>
 				<Elements>
 					<form 
+							encType="multipart/formdata"
 							role="form"
 							className="player-form"
 							onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
@@ -102,6 +103,14 @@ export class PlayerForm extends React.Component {
 								validators={[required]}
 								warn={[required]}
 						/>
+						<label htmlFor="jersey">Jersey Size</label>
+						<Field component={Select} 
+								selectInput='player-select'
+								name="jersey" 
+								options={{yxs: 'Youth Extra Small', ys: 'Youth Small', ym: 'Youth Medium', yl: 'Youth Large', yxl: 'Youth XL', as: 'Adult Small', am: 'Adult Medium', al: 'Adult Large', axl: 'Adult XL'}} 
+								validators={[required]}
+								warn={[required]}
+						/>
 						<label htmlFor="team">Team</label>
 						<Field component={Input}
 								inputClass='player-input' 
@@ -109,7 +118,7 @@ export class PlayerForm extends React.Component {
 								name="team" 
 						/>
 						<Contract />
-						<label htmlFor="contract">Please enter your full name below to acknolwedge signing this waiver</label>
+						<label htmlFor="contract">Please enter your full name below to acknowledge signing this waiver</label>
 						<Field component={Input}
 								inputClass='player-input' 
 								type="text" 

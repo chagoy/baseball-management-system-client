@@ -49,13 +49,20 @@ export const fetchStandingsError = error => ({
 export const createTeam = team => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 
+	let formData = new FormData();
+
+	for (let key in team) {
+		formData.append(key, team[key])
+	}
+
+	formData.append('logo', team.logo[0])
+
 	return fetch(`${API_BASE_URL}/api/teams`, {
 		method: 'POST',
 		headers: {
-			'content-type': 'application/json',
 			'Authorization': `Bearer ${authToken}`
 		},
-		body: JSON.stringify(team)
+		body: formData
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
