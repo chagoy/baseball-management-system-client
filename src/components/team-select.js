@@ -19,7 +19,7 @@ export class TeamForm extends React.Component {
 	render() {
 		//we are going to be using the id to send back to the server, not the name
 		let obj = {};
-		const options = this.props.teams.forEach(team => obj[team._id] = team.name);
+		const options = this.props.teams.forEach(team => obj[team._id] = `${team.name} - ${team.division}`);
 		
 
 		return (

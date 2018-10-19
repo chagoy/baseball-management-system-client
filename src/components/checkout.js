@@ -19,7 +19,10 @@ class InjectedCheckoutForm extends React.Component {
 
 		let response = await fetch(`${PAYMENT_SERVER_URL}/api/stripe`, {
 			method: 'post',
-			headers: {'Content-Type': 'application/json'},
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${this.props.authToken}`
+			},
 			body: JSON.stringify({token})
 		});
 

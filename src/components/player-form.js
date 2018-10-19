@@ -127,7 +127,7 @@ export class PlayerForm extends React.Component {
 								warn={[required, isTrimmed, nonEmpty, ]}
 						/> 
 						<div className="checkout-form">
-							<InjectedCheckoutForm />
+							<InjectedCheckoutForm authToken={this.props.authToken} />
 						</div>
 						{/*<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>*/}
 					</form>

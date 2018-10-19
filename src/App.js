@@ -20,6 +20,7 @@ import LeaguePage from './components/league-page';
 import GamePage from './components/game-page';
 import CustomNavbar from './components/custom-navbar';
 import StandingsPage from './components/standings-page';
+import TeamAssign from './components/team-assign'
 
 export class App extends Component {
 
@@ -44,6 +45,7 @@ export class App extends Component {
           <Route path="/admin" component={AdminPage} />
           <Route exact path='/reset' component={ResetPage} />
           <Route path='/reset/:hash' component={PassResetPage} />
+          <Route path='/teamassign' component={TeamAssign} />
         </div>
         {/*<Footer/>*/}
       </div>

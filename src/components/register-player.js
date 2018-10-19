@@ -13,7 +13,7 @@ export function RegisterPlayer(props) {
 	return (
 		<div>
 			<main className="home">
-				<PlayerForm />
+				<PlayerForm authToken={props.authToken} />
 			</main>
 			<footer>
 			{ props.loggedIn ? <Back /> : '' }
@@ -23,7 +23,8 @@ export function RegisterPlayer(props) {
 }
 
 const mapStateToProps = state => ({
-	loggedIn: state.auth.currentUser !== null
+	loggedIn: state.auth.currentUser !== null,
+	authToken: state.auth.authToken
 });
 
 export default connect(mapStateToProps)(RegisterPlayer);
