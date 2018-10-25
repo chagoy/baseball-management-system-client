@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllGames } from '../actions/games'
-import GameElement from './game-element'
+import { fetchUpcomingGames } from '../actions/games';
+import GameElement from './game-element';
 import Loading from './loading';
 require('./schedule.css');
 
 export class Schedule extends React.Component {
 	componentDidMount() {
-		return this.props.dispatch(fetchAllGames())
+		return this.props.dispatch(fetchUpcomingGames())
 	}
 
 	render() {
@@ -29,7 +29,7 @@ export class Schedule extends React.Component {
 
 
 const mapStateToProps = state => ({
-	admin: state.auth.currentUser.admin,
+	// admin: state.auth.currentUser.admin,
 	games: state.game.games
 });
 
