@@ -28,6 +28,7 @@ class Navbar extends React.Component {
 				<div>
 					<Link to={'/dashboard'}>Home</Link>
 					<Link to={'/register-player'}>Register</Link>
+					<Link to={'/results'}>Results</Link>
 					<Link to={'/schedule'}>Schedule</Link>
 					<Link to={'/standings'}>Standings</Link>
 					<Link to="/" onClick={e => this.handleClick(e)}>Logout</Link>

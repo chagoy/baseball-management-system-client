@@ -70,3 +70,7 @@
 .edit-scores:hover {
 	color: #373B3E;
 }
+
+.score {
+	float: right;
+}
