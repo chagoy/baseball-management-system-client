@@ -57,7 +57,8 @@ export const fetchAllPlayers = () => (dispatch, getState) => {
 
 export const updateTeam = (id, team) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	
+	console.log(id)
+	console.log(team)
 	return fetch(`${API_BASE_URL}/api/players/${id}/team`, {
 		method: 'PUT', 
 		headers: {
@@ -67,6 +68,26 @@ export const updateTeam = (id, team) => (dispatch, getState) => {
 		body: JSON.stringify({
 			'team': team.team
 		})
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => {
+		dispatch(fetchPlayerSuccess(data));
+		dispatch(updateTeamSuccess(data.team));
+	})
+	.catch(err => dispatch(fetchPlayersError(err)));
+}
+
+export const assignTeam = (data) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
+	console.log(data)
+	return fetch(`${API_BASE_URL}/api/players/${data.player}/team`, {
+		method: 'PUT', 
+		headers: {
+			'content-type': 'application/json',
+			'Authorization': `Bearer ${authToken}`
+		},
+		body: JSON.stringify(data)
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())

@@ -29,7 +29,7 @@ export class Schedule extends React.Component {
 
 
 const mapStateToProps = state => ({
-	admin: state.auth.currentUser.admin,
+	// admin: state.auth.currentUser.admin,
 	games: state.game.games
 });
 

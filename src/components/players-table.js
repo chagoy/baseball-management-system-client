@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
 import PayConfirm from './pay-confirm';
 import {Link} from 'react-router-dom';
+import PlayerTeam from './player-team'
 import './players-table.css'
 
 export class PlayersTable extends React.Component {
@@ -11,8 +12,8 @@ export class PlayersTable extends React.Component {
 	}
 
 	render() {
-		const players = this.props.players.map(player => 
-			<tr>
+		const players = this.props.players.map((player, index) => 
+			<tr key={index}>
 				<td>{player.sport}</td>
 				<td><Link to={`/player/${player.id}`}>{player.fullName}</Link></td>
 				<td>{player.month}/{player.day}/{player.year}</td>
@@ -21,6 +22,7 @@ export class PlayersTable extends React.Component {
 				<td>{player.team ? player.team.division : player.division}</td>
 				<td>{player.jersey ? player.jersey.toUpperCase() : 'none'}</td>
 				<td>{player.team ? player.team.name : 'no team'}</td>
+				<td><PlayerTeam key={index} player={player.id} team={player.team} /></td>
 				<td>{player.request ? player.request : 'n/a'}</td>
 				<td><PayConfirm id={player.id} paid={player.paid} /></td>
 			</tr>
@@ -37,6 +39,7 @@ export class PlayersTable extends React.Component {
 						<th>Division</th>
 						<th>Jersey</th>
 						<th>Team</th>
+						<th>Select</th>
 						<th>Request</th>
 						<th>Paid?</th>
 					</thead>
