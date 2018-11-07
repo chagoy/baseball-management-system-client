@@ -10,7 +10,6 @@ export class Team extends React.Component {
 
 	render() {
 
-		let onThisTeam = this.props.players.map(player => console.log(player));
 		return (
 			<h1>under construction</h1>
 		)

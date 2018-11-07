@@ -40,6 +40,12 @@ export const updateTeamSuccess = team => ({
 	team
 });
 
+export const UPDATE_PLAYER_NOTES = 'UPDATE_PLAYER_NOTES';
+export const updatePlayerNotes = player => ({
+	type: UPDATE_PLAYER_NOTES,
+	player
+})
+
 export const fetchAllPlayers = () => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/api/players`, {
@@ -117,7 +123,25 @@ export const updateDivision = (playerId, {division}) => (dispatch, getState) => 
 	.catch(err => {
 		console.error(err);
 	})
+}
 
+export const addNotes = (playerId, notes) => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
+	console.log(playerId, notes)
+	return fetch(`${API_BASE_URL}/api/players/${playerId}/notes`, {
+		method: 'PUT',
+		headers: {
+			'content-type': 'application/json',
+			'Authorization': `Bearer ${authToken}`
+		}, 
+		body: JSON.stringify({notes})
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(data => dispatch(updatePlayerNotes(data)))
+	.catch(err => {
+		console.error(err);
+	})
 }
 
 export const fetchPlayer = (playerId) => (dispatch, getState) => {
@@ -208,4 +232,17 @@ export const togglePaid = (id, value) => (dispatch, getState) => {
 			);
 		}
 	})
+}
+
+export const downloadCSV = () => (dispatch, getState) => {
+	const authToken = getState().auth.authToken;
+
+	return fetch(`${API_BASE_URL}/api/players/csv`, {
+		method: 'GET',
+		headers: {
+			'content-type': 'application/json', 
+			'Authorization': `Bearer ${authToken}`
+		}
+	})
+	.then(data => window.open(data))
 }

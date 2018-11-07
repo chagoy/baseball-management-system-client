@@ -21,9 +21,10 @@ export class GamesList extends React.Component {
     let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : <Loading />;
 
 		return (
-			<ul className="games-list">
+			//this used to be an unordered list, changed to div to sort out the width
+			<div className="games-list">
 				{gamesData}
-			</ul>
+			</div>
 		)
 	}
 }

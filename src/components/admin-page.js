@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { downloadCSV } from '../actions/players'
 import PlayersTable from './players-table';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 require('./admin-page.css');
 
 export class AdminPage extends React.Component {
@@ -11,8 +12,11 @@ export class AdminPage extends React.Component {
 			return <Redirect to='/' />;
 		}
 
+		let baseUrl = 'http://localhost:8080/api/players/csv/';
+
 		return (
 			<div className="admin-view">
+				<a href={baseUrl + this.props.user.id}>Export to CSV</a>
 				<PlayersTable />
 			</div>
 		)

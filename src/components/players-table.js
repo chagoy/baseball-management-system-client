@@ -12,6 +12,7 @@ export class PlayersTable extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.players)
 		const players = this.props.players.map((player, index) => 
 			<tr key={index}>
 				<td>{player.sport}</td>
@@ -19,9 +20,9 @@ export class PlayersTable extends React.Component {
 				<td>{player.month}/{player.day}/{player.year}</td>
 				<td>{player.playingAge}</td>
 				<td>{player.certificate ? <a href={player.certificate}>Yes</a> : 'No'}</td>
-				<td>{player.team ? player.team.division : player.division}</td>
 				<td>{player.jersey ? player.jersey.toUpperCase() : 'none'}</td>
 				<td>{player.team ? player.team.name : 'no team'}</td>
+				<td>{player.team ? player.team.division : player.division}</td>
 				<td><PlayerTeam key={index} player={player.id} team={player.team} /></td>
 				<td>{player.request ? player.request : 'n/a'}</td>
 				<td><PayConfirm id={player.id} paid={player.paid} /></td>
@@ -36,9 +37,9 @@ export class PlayersTable extends React.Component {
 						<th>Date of Birth</th>
 						<th>Playing Age</th>
 						<th>Birth Certificate?</th>
-						<th>Division</th>
 						<th>Jersey</th>
 						<th>Team</th>
+						<th>Division</th>
 						<th>Select</th>
 						<th>Request</th>
 						<th>Paid?</th>
