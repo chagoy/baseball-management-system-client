@@ -12,10 +12,8 @@ export class PlayerTeam extends React.Component {
 	}
 
 	handleChange(e) {
-		
 		let team = e.target.value;
 		let player = this.props.player;
-		
 		return this.props.dispatch(assignTeam({player, team}))
 	}
 

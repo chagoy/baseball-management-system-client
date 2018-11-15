@@ -47,6 +47,7 @@ export const updatePlayerNotes = player => ({
 })
 
 export const fetchAllPlayers = () => (dispatch, getState) => {
+	console.log('called!!!')
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/api/players`, {
 		method: 'GET', 
@@ -97,10 +98,7 @@ export const assignTeam = (data) => (dispatch, getState) => {
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(res => res.json())
-	.then(data => {
-		dispatch(fetchPlayerSuccess(data));
-		dispatch(updateTeamSuccess(data.team));
-	})
+	.then(data => dispatch(fetchAllPlayers()))
 	.catch(err => dispatch(fetchPlayersError(err)));
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { fetchProtectedData } from '../actions/protected-data';
+import { fetchAllPlayers } from '../actions/players'
 import PayConfirm from './pay-confirm';
 import {Link} from 'react-router-dom';
 import PlayerTeam from './player-team'
@@ -8,12 +9,13 @@ import './players-table.css'
 
 export class PlayersTable extends React.Component {
 	componentDidMount() {
-		return this.props.dispatch(fetchProtectedData());
+		console.log('calling')
+		return this.props.dispatch(fetchAllPlayers());
 	}
 
 	render() {
 		console.log(this.props.players)
-		const players = this.props.players.map((player, index) => 
+		const players = this.props.players ? this.props.players.map((player, index) => 
 			<tr key={index}>
 				<td>{player.sport}</td>
 				<td><Link to={`/player/${player.id}`}>{player.fullName}</Link></td>
@@ -27,7 +29,7 @@ export class PlayersTable extends React.Component {
 				<td>{player.request ? player.request : 'n/a'}</td>
 				<td><PayConfirm id={player.id} paid={player.paid} /></td>
 			</tr>
-			);
+			) : 'waiting';
 		return (
 			<div className="flex-row">
 				<table className="table">
@@ -55,7 +57,7 @@ export class PlayersTable extends React.Component {
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
-	players: state.protectedData.players
+	players: state.player.players
 });
 
 export default connect(mapStateToProps)(PlayersTable);

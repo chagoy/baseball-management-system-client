@@ -24,6 +24,7 @@ export default function reducer(state = initialState, action) {
 			player: action.player
 		})
 	} else if (action.type === FETCH_PLAYERS_SUCCESS) {
+		console.log('should change state')
 		return Object.assign({}, state, {
 			players: action.players
 		});
