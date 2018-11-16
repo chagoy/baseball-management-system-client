@@ -24,7 +24,7 @@ export function RegisterPlayer(props) {
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
-	authToken: state.auth.authToken
+	authToken: state.auth.authToken,
 });
 
 export default connect(mapStateToProps)(RegisterPlayer);

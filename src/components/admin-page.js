@@ -12,7 +12,7 @@ export class AdminPage extends React.Component {
 			return <Redirect to='/' />;
 		}
 
-		let baseUrl = 'http://localhost:8080/api/players/csv/';
+		let baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:8080/api/players/csv/';
 
 		return (
 			<div className="admin-view">

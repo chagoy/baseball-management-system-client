@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm, reset } from 'redux-form';
 import Radio from './radio';
 import Input from './input';
@@ -33,6 +34,7 @@ export class PlayerForm extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.user)
 		return (
 			<StripeProvider stripe={this.state.stripe}>
 				<Elements>
@@ -128,6 +130,7 @@ export class PlayerForm extends React.Component {
 						/> 
 						<div className="checkout-form">
 							<h3>Enter Payment Information Below</h3>
+							<p>Your price is ${this.props.user.price}! Fees go up January 18th</p>
 							<InjectedCheckoutForm authToken={this.props.authToken} />
 						</div>
 						{/*<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>*/}
@@ -138,10 +141,16 @@ export class PlayerForm extends React.Component {
 	}
 }
 
+const mapStateToProps = state => ({
+	user: state.auth.currentUser
+})
+
 const afterSubmit = (result, dispatch) => dispatch(reset('player'));
 
-export default reduxForm({
+PlayerForm = reduxForm({
 	form: 'player',
 	onSubmitSuccess: afterSubmit
 	// onSubmitFail: (errors, dispatch) => dispatch(focus('player', Object.keys(errors)[0]))
 })(PlayerForm)
+
+export default connect(mapStateToProps)(PlayerForm)
