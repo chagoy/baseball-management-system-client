@@ -20,10 +20,10 @@ export class PlayerForm extends React.Component {
 
   componentDidMount() {
     if (window.Stripe) {
-      this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
+      this.setState({stripe: window.Stripe(process.env.REACT_APP_STRIPE_KEY)});
     } else { 
       document.querySelector('#stripe-js').addEventListener('load', () => {
-        this.setState({stripe: window.Stripe('pk_test_IhxMpbX9u86ohjhQccb2vh3p')});
+        this.setState({stripe: window.Stripe(process.env.REACT_APP_STRIPE_KEY)});
       });
     }
   }
@@ -127,6 +127,7 @@ export class PlayerForm extends React.Component {
 								warn={[required, isTrimmed, nonEmpty, ]}
 						/> 
 						<div className="checkout-form">
+							<h3>Enter Payment Information Below</h3>
 							<InjectedCheckoutForm authToken={this.props.authToken} />
 						</div>
 						{/*<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>*/}

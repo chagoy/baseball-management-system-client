@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {fetchPlayer} from '../actions/players';
 import DivisionSelect from './division-select';
 import TeamSelect from './team-select';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link, withRouter} from 'react-router-dom';
 import NotesForm from './add-notes';
 require('./player.css')
 
@@ -16,10 +16,12 @@ export class Player extends React.Component {
 		if (!this.props.loggedIn) {
 			return <Redirect to='/' />;
 		}
-		console.log(this.props.player)
+
 		const parentInfo = this.props.player.user ? 
 		`${this.props.player.user.firstName} ${this.props.player.user.lastName}  - ${this.props.player.user.phone} - ${this.props.player.user.email}`
 		: false;
+		const siblings = this.props.user && this.props.user.players.length > 0 ? this.props.user.players.map((player, index) => <Link to={`/player/${player.id}`}>{player.fullName} </Link>) : 'no siblings present'
+		console.log(siblings)
 		const textingInfo = this.props.player.user ? `${this.props.player.user.texting}` : 'loading...';
 		return (
 			<div className="flex-row">
@@ -37,9 +39,12 @@ export class Player extends React.Component {
 						<p>Phone: <span className='player-text-span'>{this.props.player.user ? `${this.props.player.user.phone}` : 'No phone saved'}</span></p>
 						<p>Texting: <span className='player-text-span'>{textingInfo}</span></p>
 						<p>Requests: <span className='player-text-span'>{this.props.player.request ? `${this.props.player.request}` : 'n/a'}</span></p>
+						<p>Siblings: <span>{siblings}</span></p>
 						<h3>Admin Info</h3>
 						<p>Notes: <span className='player-text-span'>{this.props.player.notes ? `${this.props.player.notes}` : 'n/a'}</span></p>
-
+					</div>
+					<div className='birth-certificate'>
+						<img src={this.props.player.certificate}/>
 					</div>
 				</div>
 				<div className="flex-c-50">
@@ -62,6 +67,7 @@ const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null,
 	player: state.player.player,
 	team: state.team.team,
+	user: state.player.player.user,
 })
+export default withRouter(connect(mapStateToProps)(Player));
 
-export default connect(mapStateToProps)(Player)

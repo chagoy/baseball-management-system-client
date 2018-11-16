@@ -20,6 +20,7 @@ class Navbar extends React.Component {
 					<Link to={'/schedule'}>Schedule</Link>
 					<Link to={'/standings'}>Standings</Link>
 					<Link to={'/register'}>Get Involved</Link>
+					<Link to={'/league'}>League</Link>
 					<Link to={'/login'}>Login</Link>
 				</div>
 			)
@@ -31,6 +32,7 @@ class Navbar extends React.Component {
 					<Link to={'/results'}>Results</Link>
 					<Link to={'/schedule'}>Schedule</Link>
 					<Link to={'/standings'}>Standings</Link>
+					<Link to={'/league'}>League</Link>
 					<Link to="/" onClick={e => this.handleClick(e)}>Logout</Link>
 				</div>
 				)

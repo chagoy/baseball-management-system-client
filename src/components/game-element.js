@@ -32,7 +32,7 @@ export default function GameElement(props) {
 					<div className='logo-wrapper'>
 						<img className='logo-element' src={props.game.home.logo}/>
 						{props.game.homeScore ? <p className='remove score'>{props.game.homeScore}</p>: ''}
-						<p className='remove'><Link to={`team/${props.game.home.id}`}>{props.game.home.name}</Link></p>
+						<p className='remove'><Link to={`team/${props.game.home.id}`}>{props.game.home.nameAndDivision}</Link></p>
 						<p className='remove record'>({props.game.home.record})</p>
 					</div>
 				</div>

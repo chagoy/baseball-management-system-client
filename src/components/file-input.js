@@ -8,10 +8,11 @@ export default function File(props) {
 	return (
 		<div>
 			<Dropzone
+				style={{"width" : "50%", "height" : "35px", "border" : "2px solid rgba(0, 0, 0, 0.7)", "margin": "0 auto"}}
 				name={props.name}
 				onDrop={( filesToUpload, e ) => props.input.onChange(filesToUpload)}
 			>
-				<div>try dropping some files here or select to upload</div>
+				<div>Drop or Touch To Upload</div>
 			</Dropzone>
 			{props.meta.touched && props.meta.error && <span className='error'>{props.meta.error}</span>}
 			{files && Array.isArray(files) && (

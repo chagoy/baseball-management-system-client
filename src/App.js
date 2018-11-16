@@ -15,6 +15,7 @@ import Schedule from './components/schedule';
 import Team from './components/team';
 import Footer from './components/footer';
 import AdminPage from './components/admin-page';
+import PlayerPage from './components/player-page';
 import ResetPage from './components/reset-page';
 import LeaguePage from './components/league-page';
 import GamePage from './components/game-page';
@@ -35,11 +36,11 @@ export class App extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/dashboard" component={Dashboard} />
-          {/*<Route exact path='/league' component={LeaguePage} />*/}
+          <Route exact path='/league' component={LeaguePage} />
           <Route exact path='/schedule' component={Schedule} />
           <Route exact path="/register-player" component={RegisterPlayer} />
           <Route exact path="/login" component={LoginPage} />
-          <Route path="/player/:id" component={Player} />
+          <Route exact path="/player/:id" component={PlayerPage} />
           <Route path="/team/:id" component={Team} />
           {/*<Route path='/game/:id' component={GamePage} />*/}
           <Route exact path='/standings' component={StandingsPage} />
