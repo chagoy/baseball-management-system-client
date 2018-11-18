@@ -10,6 +10,7 @@ import Contract from './contract';
 import {required, nonEmpty, length, isTrimmed, maxValue, number, matches} from '../validators';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import InjectedCheckoutForm from './checkout';
+import { STRIPE_KEY } from '../config'
 const monthMax = maxValue(12);
 const dayMax = maxValue(31);
 
@@ -21,10 +22,10 @@ export class PlayerForm extends React.Component {
 
   componentDidMount() {
     if (window.Stripe) {
-      this.setState({stripe: window.Stripe(process.env.REACT_APP_STRIPE_KEY)});
+      this.setState({stripe: window.Stripe(STRIPE_KEY)});
     } else { 
       document.querySelector('#stripe-js').addEventListener('load', () => {
-        this.setState({stripe: window.Stripe(process.env.REACT_APP_STRIPE_KEY)});
+        this.setState({stripe: window.Stripe(STRIPE_KEY)});
       });
     }
   }
