@@ -21,11 +21,12 @@ export default class Textarea extends React.Component {
 		return (
 			<div className={this.props.controlClass}>
 				<textarea
-					className={error || warning? 'errorClass' : this.props.inputClass }
+					className={error || warning ? 'errorClass' : this.props.inputClass }
 					placeholder={error || warning ? warning : ''}
 					aria-relevant='all'
           aria-required='true'
           aria-label={this.props.input.name}
+          rows="5"
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}

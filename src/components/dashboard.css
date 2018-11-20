@@ -1,13 +1,14 @@
 .dashboard {
-	background: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg');
+	/*background: url('https://s3-us-west-2.amazonaws.com/am-i-going-over/neonbrand-423338-unsplash.jpg');
 	background-size: cover;
 	background-position: center;
-	min-height: 100vh;
+	min-height: 100vh;*/
+	background-color: #FDFFFC;
 }
 
 .dashboard-screen {
 	width: 100%;
-	background-color: rgba(255, 255, 255, 0.7);
+	/*background-color: rgba(255, 255, 255, 0.7);*/
 	margin: 0 auto;
 	/*padding: 20px 10px;*/
 	/*margin-top: 15px;*/
@@ -16,6 +17,7 @@
 
 .header-text {
 	font-size: 1.5rem;
+	/*color: #FDFFFC;*/
 }
 
 .admin-links {
@@ -29,13 +31,13 @@
 /*fixing the horizontal scroll*/
 .admin-links a {
 
-	color: white;
+	color: #0D1321;
 	margin-right: 7px;
 	font-size: 0.8em;
 }
 
 .admin-links a:hover {
-	font-style: italic;
+	color: #05007B;
 }
 
 .games-column {

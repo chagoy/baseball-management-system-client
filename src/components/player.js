@@ -17,9 +17,6 @@ export class Player extends React.Component {
 			return <Redirect to='/' />;
 		}
 
-		const parentInfo = this.props.player.user ? 
-		`${this.props.player.user.firstName} ${this.props.player.user.lastName}  - ${this.props.player.user.phone} - ${this.props.player.user.email}`
-		: false;
 		const siblings = this.props.user && this.props.user.players.length > 0 ? this.props.user.players.map((player, index) => <Link to={`/player/${player.id}`}>{player.fullName} </Link>) : 'no siblings present'
 		console.log(siblings)
 		const textingInfo = this.props.player.user ? `${this.props.player.user.texting}` : 'loading...';
@@ -32,7 +29,6 @@ export class Player extends React.Component {
 					<p>Team: <strong>{this.props.team ? `${this.props.team.name}` : 'no team'}</strong></p>
 					<p>Division: <span>{this.props.team ? this.props.team.division : 'no team'}</span></p>
 					<div className='parent-info'> 
-						{ parentInfo ? <div><h4>Parent Information</h4><p>{parentInfo}</p></div> : 'No parent associated with this player!' }
 						<h3>Parent Information</h3>
 						<p>Name: <span className='player-text-span'>{this.props.player.user ? `${this.props.player.user.firstName} ${this.props.player.user.lastName}` : 'No parent name'}</span></p>
 						<p>Email: <span className='player-text-span'>{this.props.player.user ? `${this.props.player.user.email}` : 'No email'}</span></p>
