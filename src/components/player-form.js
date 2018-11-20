@@ -21,11 +21,13 @@ export class PlayerForm extends React.Component {
   }
 
   componentDidMount() {
+  	let stripeKey = STRIPE_KEY
+  	console.log(stripeKey)
     if (window.Stripe) {
-      this.setState({stripe: window.Stripe(STRIPE_KEY)});
+      this.setState({stripe: window.Stripe(stripeKey)});
     } else { 
       document.querySelector('#stripe-js').addEventListener('load', () => {
-        this.setState({stripe: window.Stripe(STRIPE_KEY)});
+        this.setState({stripe: window.Stripe(stripeKey)});
       });
     }
   }
