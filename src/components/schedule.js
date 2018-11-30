@@ -11,7 +11,7 @@ export class Schedule extends React.Component {
 	}
 
 	render() {
-		let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : <Loading />;
+		let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : 'No games on the schedule';
 		return (
 			<div className="schedule">
 				<div className='flex-row'>

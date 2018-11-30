@@ -7,6 +7,10 @@ import Select from './select';
 import File from './file-input';
 import {registerPlayer} from '../actions/players';
 import Contract from './contract';
+import Refund from './refund';
+import Fundraising from './fundraising';
+import Checkbox from './checkbox';
+import ParentsContract from './parents-contract';
 import {required, nonEmpty, length, isTrimmed, maxValue, number, matches} from '../validators';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import InjectedCheckoutForm from './checkout';
@@ -116,11 +120,11 @@ export class PlayerForm extends React.Component {
 								validators={[required]}
 								warn={[required]}
 						/>
-						<label htmlFor="team">Team</label>
+						<label htmlFor="request">Any food allergies or things to note</label>
 						<Field component={Input}
 								inputClass='player-input' 
 								type="text" 
-								name="team" 
+								name="request" 
 						/>
 						<Contract />
 						<label htmlFor="contract">Please enter your full name below to acknowledge signing this waiver</label>
@@ -131,10 +135,28 @@ export class PlayerForm extends React.Component {
 								validators={[required, isTrimmed, nonEmpty, ]}
 								warn={[required, isTrimmed, nonEmpty, ]}
 						/> 
+						<ParentsContract />
+						<label htmlFor='parentsContract'>Please type your initials to acknowledge accepting this contract</label>
+						<Field component={Input}
+								inputClass='player-input' 
+								type="text" 
+								name="parentContract" 
+								validators={[required, isTrimmed, nonEmpty, ]}
+								warn={[required, isTrimmed, nonEmpty, ]}
+						/> 
+						<Fundraising />
+						<Field component={Checkbox}
+								inputClass='player-input'
+								name='fundraising'
+								label='Please check the box to acknowledge agreeing to participating in the fundraiser'
+								validators={[required]}
+								warn={[required]}
+						/>
+						<Refund />
 						<div className="checkout-form">
 							<h3>Enter Payment Information Below</h3>
 							<p>Your price is ${this.props.user.price}! Fees go up January 18th</p>
-							<InjectedCheckoutForm authToken={this.props.authToken} />
+							<InjectedCheckoutForm authToken={this.props.authToken} disabled={this.props.pristine || this.props.submitting} />
 						</div>
 						{/*<button aria-label="submit" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>*/}
 					</form>

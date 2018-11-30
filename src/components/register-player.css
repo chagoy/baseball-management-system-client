@@ -64,6 +64,54 @@
 	font-size: 1.5rem;
 }
 
+.refund, .fundraising, .contract {
+	width: 76%;
+	margin: 0 auto;
+}
+
+.refund > ul > li {
+	text-align: left;
+	/*background-color: red;*/
+	padding: 4px 4px;
+}
+
+.contract > ul > li {
+	text-align: left;
+	padding: 4px 4px;
+}
+
+.refund > ul {
+	list-style: none;
+	/*text-align: left;*/
+	margin: 0 auto;
+}
+
+.contract > ul {
+	list-style: none;
+	margin: 0 auto;
+}
+
+.checkbox {
+	display: flex;
+	justify-content: center;
+}
+
+.checkbox > input[type='checkbox'] {
+
+}
+
+.checkbox-label {
+	padding-left: 5px;
+	color: #393E41;
+	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
+}
+
+.checkbox > input > [type="checkbox"]:checked, [type="checkbox"]:not(:checked) {
+	width: 1.25em;
+	height: 1.25em;
+	border: 2px solid #ececec;
+}
+
 @media (max-width: 767px) {
 	.player-form {
 		width: 100%;
@@ -71,5 +119,9 @@
 
 	.checkout {
 		width: 95%;
+	}
+
+	.refund, .fundraising, .contract {
+	width: 90%;
 	}
 }

@@ -217,7 +217,7 @@ body {
 	/*background-color: #FBFBFB;*/
 }
 
-p, h1, h2, h3, h4, h5, h6, p, span, label, input, textarea {
+p, h1, h2, h3, h4, h5, h6, p, span, label, input, textarea, li, ul {
 	color: #393E41;
 	font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", "sans-serif";
 }

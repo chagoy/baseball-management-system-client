@@ -18,7 +18,7 @@ export class GamesList extends React.Component {
 	render() {
 		
 		// let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <Link onClick={e => this.handleClick({game})} key={index} to={`/game/${game.id}`}><GameElement key={ index } game={ game }/></Link>) : 'Loading games...';
-    let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : <Loading />;
+    let gamesData = this.props.games.length > 0 ? this.props.games.map((game, index) => <GameElement admin={this.props.admin} key={ index } game={ game }/>) : 'No games to show';
 
 		return (
 			//this used to be an unordered list, changed to div to sort out the width
