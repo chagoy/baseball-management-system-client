@@ -14,8 +14,11 @@ class InjectedCheckoutForm extends React.Component {
 		};
 	}
 
+	handleChange = (e) => this.setState({name: e.currentTarget.value});
+
 	async submit(ev) {
-		let {token} = await this.props.stripe.createToken({name: 'Name'});
+		const { name } = this.state;
+		let {token} = await this.props.stripe.createToken({name: name});
 
 		let response = await fetch(`${PAYMENT_SERVER_URL}/api/stripe`, {
 			method: 'post',
@@ -33,9 +36,11 @@ class InjectedCheckoutForm extends React.Component {
 
 	render() {
 		if (this.state.complete) return <Redirect to ='dashboard' />;
-		
+		const { name } = this.state;
+
 		return (
 			<div className='checkout'>
+				<input name='name' onChange={this.handleChange} value={name} placeholder='card holder name'/>
 				<CardElement />
 				<button className="player-button" onClick={this.submit} disabled={this.props.disabled}>Send</button>
 			</div>

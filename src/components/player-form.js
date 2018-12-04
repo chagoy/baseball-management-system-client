@@ -30,9 +30,11 @@ export class PlayerForm extends React.Component {
     if (window.Stripe) {
       this.setState({stripe: window.Stripe(stripeKey)});
     } else { 
+    	console.log('adding stripe')
       document.querySelector('#stripe-js').addEventListener('load', () => {
         this.setState({stripe: window.Stripe(stripeKey)});
       });
+      console.log(this.state.stripe)
     }
   }
 
@@ -42,6 +44,7 @@ export class PlayerForm extends React.Component {
 
 	render() {
 		console.log(this.props.user)
+		console.log(this.state.stripe)
 		return (
 			<StripeProvider stripe={this.state.stripe}>
 				<Elements>
@@ -174,7 +177,7 @@ const afterSubmit = (result, dispatch) => dispatch(reset('player'));
 
 PlayerForm = reduxForm({
 	form: 'player',
-	onSubmitSuccess: afterSubmit
+	onSubmitSuccess: afterSubmit,
 	// onSubmitFail: (errors, dispatch) => dispatch(focus('player', Object.keys(errors)[0]))
 })(PlayerForm)
 
