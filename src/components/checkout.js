@@ -19,7 +19,7 @@ class InjectedCheckoutForm extends React.Component {
 	async submit(ev) {
 		const { name } = this.state;
 		let {token} = await this.props.stripe.createToken({name: name});
-
+		console.log(token)
 		let response = await fetch(`${PAYMENT_SERVER_URL}/api/stripe`, {
 			method: 'post',
 			headers: {

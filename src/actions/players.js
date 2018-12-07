@@ -47,7 +47,6 @@ export const updatePlayerNotes = player => ({
 })
 
 export const fetchAllPlayers = () => (dispatch, getState) => {
-	console.log('called!!!')
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/api/players`, {
 		method: 'GET', 
@@ -64,8 +63,6 @@ export const fetchAllPlayers = () => (dispatch, getState) => {
 
 export const updateTeam = (id, team) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	console.log(id)
-	console.log(team)
 	return fetch(`${API_BASE_URL}/api/players/${id}/team`, {
 		method: 'PUT', 
 		headers: {
@@ -87,7 +84,6 @@ export const updateTeam = (id, team) => (dispatch, getState) => {
 
 export const assignTeam = (data) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	console.log(data)
 	return fetch(`${API_BASE_URL}/api/players/${data.player}/team`, {
 		method: 'PUT', 
 		headers: {
@@ -104,7 +100,6 @@ export const assignTeam = (data) => (dispatch, getState) => {
 
 export const updateDivision = (playerId, {division}) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	console.log(division);
 	return fetch(`${API_BASE_URL}/api/players/${playerId}/division`, {
 		method: 'PUT', 
 		headers: {
@@ -125,7 +120,7 @@ export const updateDivision = (playerId, {division}) => (dispatch, getState) => 
 
 export const addNotes = (playerId, notes) => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
-	console.log(playerId, notes)
+	
 	return fetch(`${API_BASE_URL}/api/players/${playerId}/notes`, {
 		method: 'PUT',
 		headers: {
@@ -205,9 +200,9 @@ export const registerPlayer = player => (dispatch, getState) => {
 };
 
 export const togglePaid = (id, value) => (dispatch, getState) => {
-	console.log(value);
+
 	const newPaidValue = !value;
-	console.log(newPaidValue);
+
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/api/players/${id}/paid`, {
 		method: 'post',

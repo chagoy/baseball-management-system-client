@@ -7,7 +7,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
 	if (action.type === FETCH_PLAYER_SUCCESS) {
-		console.log('success')
 		return Object.assign({}, state, {
 			player: action.player,
 		});
@@ -24,7 +23,6 @@ export default function reducer(state = initialState, action) {
 			player: action.player
 		})
 	} else if (action.type === FETCH_PLAYERS_SUCCESS) {
-		console.log('should change state')
 		return Object.assign({}, state, {
 			players: action.players
 		});

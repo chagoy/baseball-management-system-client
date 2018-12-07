@@ -9,12 +9,11 @@ import './players-table.css'
 
 export class PlayersTable extends React.Component {
 	componentDidMount() {
-		console.log('calling')
 		return this.props.dispatch(fetchAllPlayers());
 	}
 
 	render() {
-		console.log(this.props.players)
+
 		const players = this.props.players ? this.props.players.map((player, index) => 
 			<tr key={index}>
 				<td>{player.sport}</td>
@@ -27,28 +26,28 @@ export class PlayersTable extends React.Component {
 				<td>{player.team ? player.team.division : player.division}</td>
 				<td><PlayerTeam key={index} player={player.id} team={player.team} /></td>
 				<td>{player.request ? player.request : 'n/a'}</td>
-				<td><PayConfirm id={player.id} paid={player.paid} /></td>
+				<td><PayConfirm key={index} id={player.id} paid={player.paid} /></td>
 			</tr>
 			) : 'waiting';
 		return (
 			<div className="flex-row">
 				<table className="table">
 					<thead>
-						<th>Sport</th>
-						<th>Name</th>
-						<th>Date of Birth</th>
-						<th>Playing Age</th>
-						<th>Birth Certificate?</th>
-						<th>Jersey</th>
-						<th>Team</th>
-						<th>Division</th>
-						<th>Select</th>
-						<th>Request</th>
-						<th>Paid?</th>
+						<tr>
+							<th>Sport</th>
+							<th>Name</th>
+							<th>Date of Birth</th>
+							<th>Playing Age</th>
+							<th>Birth Certificate?</th>
+							<th>Jersey</th>
+							<th>Team</th>
+							<th>Division</th>
+							<th>Select</th>
+							<th>Request</th>
+							<th>Paid?</th>
+						</tr>
 					</thead>
-					<tbody>
-						{players}
-					</tbody>
+					<tbody>{players}</tbody>
 				</table>
 			</div>
 		);

@@ -30,11 +30,11 @@ export class PlayerForm extends React.Component {
     if (window.Stripe) {
       this.setState({stripe: window.Stripe(stripeKey)});
     } else { 
-    	console.log('adding stripe')
+    	
       document.querySelector('#stripe-js').addEventListener('load', () => {
         this.setState({stripe: window.Stripe(stripeKey)});
       });
-      console.log(this.state.stripe)
+      
     }
   }
 
@@ -43,8 +43,7 @@ export class PlayerForm extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.user)
-		console.log(this.state.stripe)
+
 		return (
 			<StripeProvider stripe={this.state.stripe}>
 				<Elements>
@@ -115,14 +114,14 @@ export class PlayerForm extends React.Component {
 								validators={[required]}
 								warn={[required]}
 						/>
-						<label htmlFor="jersey">Jersey Size</label>
+						{/*<label htmlFor="jersey">Jersey Size</label>
 						<Field component={Select} 
 								selectInput='player-select'
 								name="jersey" 
 								options={{yxs: 'Youth Extra Small', ys: 'Youth Small', ym: 'Youth Medium', yl: 'Youth Large', yxl: 'Youth XL', as: 'Adult Small', am: 'Adult Medium', al: 'Adult Large', axl: 'Adult XL'}} 
 								validators={[required]}
 								warn={[required]}
-						/>
+						/>*/}
 						<label htmlFor="request">Any food allergies or things to note</label>
 						<Field component={Input}
 								inputClass='player-input' 

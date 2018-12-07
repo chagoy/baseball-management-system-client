@@ -1,19 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+require('./league-page.css')
 
 export class LeaguePage extends React.Component {
 
 	render() {
 		return (
 			<div className='flex-wrap'>
-				<h2>League History</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at elementum eros. Phasellus tincidunt aliquam urna sed pharetra. Aenean blandit ipsum nec velit tincidunt lacinia non id nulla. Etiam pellentesque finibus feugiat. Integer scelerisque eros tellus, in facilisis ligula lobortis ut. Pellentesque eget nisi ex. Praesent placerat porta massa, vitae faucibus sapien.</p>
-				<p>Suspendisse vitae sodales tellus. Suspendisse blandit lorem blandit feugiat lobortis. Cras finibus diam in nisl cursus, eu varius lectus porttitor. Fusce suscipit lacus vitae dolor vestibulum, non aliquam ipsum sagittis. Morbi eleifend non elit quis dapibus. Quisque pellentesque porta lobortis. Sed pretium aliquet enim mollis facilisis. Nunc et mollis neque. Sed diam ipsum, bibendum ac lobortis eu, tempus vitae diam. Fusce ut nisl nisi. Proin mattis odio odio, a vestibulum erat scelerisque sed. In molestie odio ac ex condimentum, ut dignissim mi aliquam.</p>
-				<p>Praesent elementum id tellus non sollicitudin. Nullam nunc dui, pulvinar quis mi ac, eleifend dapibus sapien. Suspendisse tincidunt elit sit amet euismod suscipit. Quisque malesuada turpis quis porta efficitur. Pellentesque et venenatis orci. Quisque sodales, dolor et placerat tempus, justo sapien lacinia lorem, sit amet semper lectus velit et tellus. Fusce vitae congue felis, at ullamcorper est.</p>
-				<h2>Our Commitment</h2>
-				<p>Praesent pellentesque lacinia mauris, id porta libero aliquam sit amet. Praesent ut urna blandit metus vulputate porta. Etiam hendrerit id turpis vel convallis. Praesent ultrices neque vehicula nibh pretium, at placerat lacus semper. Aliquam sed tincidunt ante, mattis dictum mi. Mauris elementum elementum neque non molestie.</p>
-				<h3>Want to get involved?</h3>
-				<p><a href="#">Send us an email</a></p>
+				<div className='flex-c-60'>
+					<h2>League History</h2>
+					<p className='league-text'>MPK Baseball & Softball was founded in 2015 with the help of the local community and the families of Monterey Park and the surrounding cities. MPK gives back to the community through our baseball and softball programs.</p>
+					<p className='league-text'>Our mission is to provide a safe, fun, and active environmment through the game of baseball and softball. Our grassroots programs are for boys and girls, ages 4-14 of all skill levels.</p>
+					<p className='league-text'>Our programs foster and build character by teaching real life skills on and off the field. We have many focuses such as teamwork, sportsmanship, health and well-being, networking and building relationships, leadership, athleticism, and positive competitiveness as our children grow up to be young adults and leaders in the community.</p>
+					<p>MPK Board</p>
+					<h3>Want to get involved? Have a question?</h3>
+					<p><a href="mailto:mpkbaseball15@gmail.com">Send us an email</a></p>
+				</div>
 			</div>
 		)
 	}

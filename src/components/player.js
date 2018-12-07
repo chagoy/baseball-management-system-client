@@ -18,7 +18,7 @@ export class Player extends React.Component {
 		}
 
 		const siblings = this.props.user && this.props.user.players.length > 0 ? this.props.user.players.map((player, index) => <Link to={`/player/${player.id}`}>{player.fullName} </Link>) : 'no siblings present'
-		console.log(siblings)
+		
 		const textingInfo = this.props.player.user ? `${this.props.player.user.texting}` : 'loading...';
 		return (
 			<div className="flex-row">

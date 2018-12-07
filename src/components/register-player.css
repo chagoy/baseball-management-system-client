@@ -69,6 +69,10 @@
 	margin: 0 auto;
 }
 
+.fundraiser-text {
+	font-family: 'Arial';
+	font-size: 0.93em;
+}
 .refund > ul > li {
 	text-align: left;
 	/*background-color: red;*/
@@ -78,6 +82,8 @@
 .contract > ul > li {
 	text-align: left;
 	padding: 4px 4px;
+	font-family: 'Arial';
+	font-size: 0.93em;
 }
 
 .refund > ul {
